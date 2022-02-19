@@ -1,0 +1,13 @@
+.menu-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem 1.3rem 1rem;
+    font-size: 17px;
+}
+.menu-container:hover{
+    background-color: rgba(43, 41, 41, 0.637);
+    color: #FFF;
+    transition: all 0.5s;
+}

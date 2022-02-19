@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+mat-icon.mat-icon.notranslate.seachIcon.seachIcon.material-icons.mat-icon-no-color {
+    font-size: 45px;
+    margin-top: -1rem;
+}
+.iti--allow-dropdown input,
+ .iti--allow-dropdown input[type=text],
+  .iti--allow-dropdown input[type=tel],
+   .iti--separate-dial-code input,
+    .iti--separate-dial-code input[type=text],
+     .iti--separate-dial-code input[type=tel] {
+    padding-right: 6px;
+    padding-left: 52px;
+    margin-left: 0;
+    height: 3.3rem;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    outline: none;
+    /* padding-left: 1.5rem; */
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid black;
+    
+}
+// .iti--allow-dropdown input,
+// .iti--allow-dropdown input[type=text],
+// .iti--allow-dropdown input[type=tel],
+// .iti--separate-dial-code input,
+// .iti--separate-dial-code input[type=text],
+// .iti--separate-dial-code input[type=tel] {
+//   padding-right: 6px;
+//   padding-left: 52px;
+//   margin-left: 0;
+//   height: 2.6rem;
+//   // border: 1px solid #707070;
+//   border-radius: 0.3rem;
+//   background: #2828281A 0% 0% no-repeat padding-box;
+//   opacity: 1;
+//   display: flex;
+//   flex-direction: row;
+//   flex: 1;
+//   border: none;
+// }
+.iti {
+    position: relative;
+    display: inline-block;
+    /* width: 0rem; */
+    flex: 1;
+    display: flex;
+}
+ngx-intl-tel-input {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}

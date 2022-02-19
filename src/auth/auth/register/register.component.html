@@ -1,0 +1,69 @@
+
+<div class="formsContainer">
+    <div class="login-title">
+        Register
+    </div>
+    
+    <div class="login-form">
+        <form [formGroup]="registerForm" (ngSubmit)="register(registerForm)" class="log">
+            <mat-stepper> 
+            <mat-step>
+                <ng-template matStepLabel>Personnelles</ng-template>
+                <div class="form-group">
+                <app-text-input label="Last Name" controlName="lastName"></app-text-input>
+                <app-input-error errorLabel="Ce champ est requis" [showAlert]="registerForm.get('lastName')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+                </div>
+            
+        
+                <div class="form-group">
+                    <app-text-input label="First Name" controlName="firstName"></app-text-input>
+                    <app-input-error errorLabel="Ce champ est requis" [showAlert]="registerForm.get('firstName')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+                </div>
+        
+                <div class="form-group">
+                    <app-select-input label="Sexe" homme="Homme" femme="Femme"></app-select-input>
+                    <app-input-error errorLabel="Ce champ est requis" [showAlert]="registerForm.get('sexe')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+                </div>
+        
+                <div class="form-group-tel">
+                    <app-tel-input controlName="telephone" label="Téléphone"></app-tel-input> 
+                    <app-input-error errorLabel="Ce champ est requis" [showAlert]="registerForm.get('telephone')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+                </div>
+                
+                <button class="step_btn" type="button" mat-button matStepperNext>suivant</button>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>connexions</ng-template> 
+                <div class="form-group">
+                <app-email-input label="Email" controlName="email"></app-email-input>
+                <app-input-error errorLabel="Veillez-saisir un email valid" [showAlert]="registerForm.get('email')?.invalid && alert" icon="./../../../assets/warning_amber_black_24dp.svg"></app-input-error>
+                </div>
+        
+               
+                <div class="form-group">
+                <app-password-input label="Password" controlName="password"></app-password-input>
+                <app-input-error errorLabel="Veillez-saisir un email valid" [showAlert]="registerForm.get('password')?.invalid && alert" icon="./../../../assets/warning_amber_black_24dp.svg"></app-input-error>
+                </div>
+        
+                <div class="form-group">
+                    <app-password-input label="Confirme Password" controlName="confPassWord"></app-password-input>
+                    <app-input-error errorLabel="Veillez-saisir un email valid" [showAlert]="registerForm.get('confPassWord')?.invalid && alert" icon="./../../../assets/warning_amber_black_24dp.svg"></app-input-error>
+                </div>
+        
+        
+                <div class="btn">
+                    <app-button labelButton="ENREGISTRER" (clicked)="connect()">
+                    </app-button>
+                </div>
+                <button class="step_btn" mat-button matStepperPrevious>Retour</button>
+        
+            </mat-step>
+        </mat-stepper> 
+    </form>
+
+</div>
+    
+
+</div>
+    
+

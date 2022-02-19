@@ -1,0 +1,126 @@
+.homeContainer {}
+
+.menu-bar {
+  height: 7.62rem;
+  background-color: #2bbae5;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 6rem;
+}
+
+.logo img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 30rem;
+  max-width: 35rem;
+  padding-right: 2rem;
+}
+
+.menu span {
+  display: block;
+  height: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
+  border-top: 10px solid transparent;
+  font-size: 16px;
+  font-family: Trebuchet MS, sans-serif;
+}
+
+.menu span:hover {
+  background-color: rgba(43, 41, 41, 0.637);
+  color: #FFF;
+  transition: all 0.5s;
+  padding: 0 0.5rem;
+  border-top: 10px solid #FFF;
+  max-height: 7rem;
+  cursor: pointer;
+}
+
+.menu-icon {
+  display: none;
+  margin-right: 2rem;
+}
+
+.menu-icon img {
+  width: 50px;
+}
+
+
+.slidIn {
+  height: 19rem;
+  width: 15rem;
+  background: #FFF;
+  transition: all 0.5s;
+  border-radius: 10px;
+}
+
+.slidOut {
+  height: 0rem;
+  transition: all 0.5s;
+
+  .text {
+    display: none
+  }
+
+}
+
+.mainHeader {
+  position: absolute;
+  z-index: 1000;
+  right: 0.5rem;
+  top: 5rem;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+  .menu {
+    display: none;
+  }
+
+  .menu-icon {
+    display: inline-block;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+    
+    main {
+      display: none;
+    }
+
+}
+@media only screen and (max-width: 475px){
+  .logo{
+    padding-left: 1rem;
+  }
+}

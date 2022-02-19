@@ -1,0 +1,59 @@
+<div class="main">
+    <div class="returHome" (click)="returHome()">Retournez à la page d'accueil</div>
+    <div class="title">
+        <span class="info"> Vous-êtes prestataire? Inscrivez-vous ici</span>
+        <img src='./../../../assets/edit_black_24dp.svg'>
+    </div>
+    <form class="form-container" [formGroup]="provideForm" (ngSubmit)="provideRegiste(provideForm)">
+
+        <div class="formGroupInput">
+
+        <div class="part1">
+      
+        <div class="form-group">
+            <app-text-input label="Nom" controlName="lastName"></app-text-input>
+            <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('lastName')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+        </div>
+
+        <div class="form-group">
+            <app-text-input label="Prénom" controlName="firstName"></app-text-input>
+            <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('firstName')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+        </div>
+
+        <div class="form-group-tel">
+            <app-tel-input controlName="telephone" label="Téléphone"></app-tel-input> 
+            <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('telephone')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+        </div>
+
+        <div class="form-group">
+            <app-email-input label="Email (pas obligatoire)" controlName="email"></app-email-input>
+            <app-input-error [showAlert]="provideForm.get('email')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg" errorLabel="veuillez entrer un email valid"></app-input-error>
+        </div>
+    </div>
+
+    <div class="part2">
+
+        <div class="form-group">
+            <app-text-input label="Votre prestation" controlName="TypeProvide"></app-text-input>
+            <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('TypeProvide')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+        </div>
+
+        <div class="form-group">
+            <app-password-input label="Mot de passe" controlName="password"></app-password-input>
+            <app-input-error [showAlert]="provideForm.get('password')?.invalid && alert"  icon="./../../../assets/report_problem_black_24dp.svg" errorLabel="Mot de passe incorrect">
+    
+            </app-input-error>
+        </div>
+
+        <div class="form-group">
+            <app-password-input label="Confirmer le mot de passe" controlName="confirmPassWord"></app-password-input>
+            <app-input-error [showAlert]="provideForm.get('confirmPassWord')?.invalid && alert"  icon="./../../../assets/report_problem_black_24dp.svg" errorLabel="Mot de passe incorrect">
+            </app-input-error>
+        </div>
+    </div>
+</div>
+<div class="button">
+        <app-button labelButton="ENREGISTRER"></app-button>
+</div>
+    </form>
+</div>

@@ -1,0 +1,21 @@
+.banner{
+    width: inherit;
+     height: 27rem;
+     background-image: url('./../../assets/main-de-femme-noire-se-lave-a-l-exterieur-de-son-foyer-rural-de-vetements-cpyhta.jpg');
+     background-repeat: no-repeat;
+     background-size:cover
+     
+}
+.provider-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center stretch;
+    justify-content: center;
+   margin-left: 4rem;
+   margin-right: 4rem;
+   margin-top: 3rem;
+}
+.accueilContainer{
+    background-color: rgb(53, 152, 177)
+}

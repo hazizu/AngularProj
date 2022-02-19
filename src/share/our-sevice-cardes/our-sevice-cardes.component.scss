@@ -1,0 +1,36 @@
+.service-carde {
+    width: 30.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    padding:1rem
+}
+.service-carde:hover{
+    transform: scale(1.1);
+    transition: all 0.5s;
+    background-color:rgb(212, 238, 247);
+    
+}
+img.service-carde-image {
+    width: 13rem;
+    height: 12rem;
+    border-radius: 50%;
+    border: 12px solid #2bbae5;
+}
+img.service-carde-image:hover{
+    transform: scale(1.1);
+    transition: all 0.5s;
+}
+p.service-carde-description {
+    text-align: center;
+    line-height: 1.5;
+    font-size: 20px;
+    width: 22rem;
+}
+span.service-carde-title {
+    padding: 1rem 0;
+    font-size: 2rem;
+    line-height: 1;
+}

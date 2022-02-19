@@ -1,0 +1,122 @@
+.login-title {
+    font-family: 'helvetica';
+    font-size: 7rem;
+    font-weight: 100;
+    padding: 3rem 0;
+  }
+  
+  .login-form {
+      background-color: rgba(255, 255, 255, 0.15);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      border-radius: 50px;
+      float: right;
+      padding: 2rem 0rem 2rem 0rem;
+      height: 36rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 35rem;
+      margin-top: 4rem;
+  }
+  
+  .form-group {
+    padding-top: 1rem;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+  .form-group-tel{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding-top: 1rem;
+  }
+  app-tel-input{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+  }
+  
+  .btn {
+    margin-top: 1rem;
+  }
+  
+  .login-options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2rem;
+  }
+  
+  a.resterConnecter {
+    text-decoration: none;
+    color: #000000fa;
+    font-size: 18px;
+  }
+  
+  .registerLink {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+  }
+  
+  .registerLink a {
+    text-decoration: none;
+    color: #000000fa;
+    font-family: 'helvetica', Neue
+  }
+  .formsContainer {
+    display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 75%;
+      align-items: center;
+      margin: auto;
+  }
+  form.log{
+    display: flex;
+    flex-direction: column;
+
+  }
+  .mat-stepper-horizontal {
+    background-color: initial;
+    width: -webkit-fill-available;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+button.mat-stepper-next.step_btn.ng-star-inserted {
+    width: 100%;
+    outline: none;
+    padding: 0.3rem;
+    font-size: 23px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 1rem;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+button.mat-stepper-previous.step_btn.ng-star-inserted {
+  width: 100%;
+    outline: none;
+    padding: 0.3rem;
+    font-size: 23px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+.option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 1rem;
+}
+.connectLink{
+  cursor: pointer;
+}
+
+

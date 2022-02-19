@@ -1,0 +1,30 @@
+<div class="homeContainer">
+    <div class="menu-bar">
+        <div class="logo">
+            <img src="./../../assets/logo-fanico.jpg">
+        </div>
+
+        <div class="menu">
+            <span (click)="getServices()">nos services</span>
+            <span>offres-actu</span>
+            <span>Contactez-nous</span>
+            <span (click)="getHome()">Home</span> 
+            <span (click)="getProvideRegister()">Prestataire?</span> 
+        </div>
+        <div class="menu-icon" (click)="drop()">
+            <img src="./../../assets/menu_black_24dp.svg">
+        </div>
+        <main [ngClass]="{mainHeader:true, slidIn:open, slidOut:!open}">
+        <div class="text">
+            <app-menu-mobile imgUrl="./../../assets/edit_black_24dp.svg" text="nos services" (clicked)="getServices()"></app-menu-mobile>
+            <app-menu-mobile imgUrl="./../../assets/menu_black_24dp.svg" text="offres-actu"></app-menu-mobile>
+            <app-menu-mobile imgUrl="./../../assets/menu_black_24dp.svg" text="Contactez-nous"></app-menu-mobile>
+            <app-menu-mobile imgUrl="./../../assets/menu_black_24dp.svg" text="Home" (clicked)="getHome()"></app-menu-mobile>
+            <app-menu-mobile imgUrl="./../../assets/menu_black_24dp.svg" text="Prestataire?" (clicked)="getProvideRegister()"></app-menu-mobile>
+        </div>
+        
+    </main>
+    </div>
+   
+<router-outlet></router-outlet>  
+</div>
