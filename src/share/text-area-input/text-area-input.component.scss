@@ -1,29 +1,21 @@
 .form-group {
     display: flex;
     flex-direction: column;
-    position: relative;
   }
   
-  input {
+  textarea {
     outline: none;
-    height: 3rem;
-    border: none;
+    height: 10rem;
     padding-left: 1.5rem;
     font-size: 18px;
     background-color: rgba(255, 255, 255, 0.116);
     border: 1px solid #FFF;
-    
+    max-width: -webkit-fill-available;
+    font-family: 'Roboto';
   }
   
   span.label {
     font-size: 18px;
     padding-bottom: 0.5rem;
-  }
-  
-  mat-icon.mat-icon.notranslate.eye-icon.material-icons.mat-icon-no-color {
-    cursor: pointer;
-    position: absolute;
-    top: 42px;
-    right: 16px;
   }
   

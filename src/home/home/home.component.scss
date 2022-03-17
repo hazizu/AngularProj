@@ -30,9 +30,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  min-width: 30rem;
-  max-width: 35rem;
-  padding-right: 2rem;
+  min-width: 40rem;
+  max-width: 40rem;
+  padding-right: 1rem;
 }
 
 .menu span {
@@ -45,7 +45,10 @@
   padding: 0 0.5rem;
   border-top: 10px solid transparent;
   font-size: 16px;
-  font-family: Trebuchet MS, sans-serif;
+  font-family: 'Roboto';
+  font-weight: 300;
+  color: unset
+  
 }
 
 .menu span:hover {
@@ -56,6 +59,11 @@
   border-top: 10px solid #FFF;
   max-height: 7rem;
   cursor: pointer;
+}
+span.logout {
+  font-weight: 600 !important;
+  color: green !important;
+  margin-left: 1.5rem;
 }
 
 .menu-icon {
@@ -69,8 +77,8 @@
 
 
 .slidIn {
-  height: 19rem;
-  width: 15rem;
+  height: 25rem;
+  width: 17rem;
   background: #FFF;
   transition: all 0.5s;
   border-radius: 10px;
@@ -78,7 +86,7 @@
 
 .slidOut {
   height: 0rem;
-  transition: all 0.5s;
+  transition: all 0.8s;
 
   .text {
     display: none

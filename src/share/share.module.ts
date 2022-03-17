@@ -20,6 +20,11 @@ import { MenuMobileComponent } from './menu-mobile/menu-mobile.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { OurSeviceCardesComponent } from './our-sevice-cardes/our-sevice-cardes.component';
 import { ServicesPageComponent } from './services-page/services-page.component';
+import { ContactUsFormComponent } from './contact-us-form/contact-us-form.component';
+import { TextAreaInputComponent } from './text-area-input/text-area-input.component';
+import { ConfirmeComponent } from './confirme/confirme.component';
+
+
 
 
 
@@ -40,7 +45,10 @@ import { ServicesPageComponent } from './services-page/services-page.component';
     PersonalProviderPageComponent,
     MenuMobileComponent,
     OurSeviceCardesComponent,
-    ServicesPageComponent
+    ServicesPageComponent,
+    ContactUsFormComponent,
+    TextAreaInputComponent,
+    ConfirmeComponent
    
   ],
   imports: [
@@ -50,7 +58,7 @@ import { ServicesPageComponent } from './services-page/services-page.component';
     MatIconModule,
     Ng2SearchPipeModule,
     NgxIntlTelInputModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   exports: [
     EmailInputComponent,
@@ -65,7 +73,10 @@ import { ServicesPageComponent } from './services-page/services-page.component';
     PersonalProviderPageComponent,
     MenuMobileComponent,
     OurSeviceCardesComponent,
-    ServicesPageComponent
+    ServicesPageComponent,
+    ContactUsFormComponent,
+    ConfirmeComponent
+
    
   ]
 })

@@ -62,10 +62,7 @@ export class ServiceProviderComponent implements OnInit {
       imageUrl:"./../../assets/portrait-d-une-femme-africaine-pour-laver-le-linge-a-la-main-dans-des-seaux-accra-ghana-c5hg23.jpg",
       name:"CASH MAMA "
     },
-    {
-      imageUrl:"./../../assets/portrait-d-une-femme-africaine-pour-laver-le-linge-a-la-main-dans-des-seaux-accra-ghana-c5hg23.jpg",
-      name:"TANTIE CHAPP "
-    },
+
     // {
     //   imageUrl:"./../../assets/portrait-d-une-femme-africaine-pour-laver-le-linge-a-la-main-dans-des-seaux-accra-ghana-c5hg23.jpg",
     //   name:"AKISSI Fatima"

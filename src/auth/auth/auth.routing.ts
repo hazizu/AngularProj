@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContactUsFormComponent } from 'src/share/contact-us-form/contact-us-form.component';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './login/login.component';
 import { ProvideRegisterComponent } from './provide-register/provide-register.component';
@@ -18,6 +19,9 @@ const routes: Routes = [
             },
             {
                 path:'provider-register', component:ProvideRegisterComponent,pathMatch:"full"
+            },
+            {
+                path:'contactez-nous', component : ContactUsFormComponent,pathMatch:"full"
             }
            
         ]

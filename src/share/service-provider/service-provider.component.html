@@ -1,19 +1,18 @@
 <!-- <app-serch-bar [searchValue]="args" seachPlacholder="recherches....."></app-serch-bar> -->
-<!-- <input type="text" placeholder="recherches...." [(ngModel)]="searchValue" class="input"/> -->
+<!-- <input type="text" placeholder="recherches...." [(ngModel)]="searchValue" class="input" /> -->
 <div class="seach-container">
-    <input type="text" class="seachBar" placeholder="recherches...." [(ngModel)]="searchValue">
-    <mat-icon class="seachIcon">search</mat-icon>
+  <input type="text" class="seachBar" placeholder="recherches...." [(ngModel)]="searchValue">
+  <mat-icon class="seachIcon">search</mat-icon>
 </div>
 
 <div class="provider-container">
-<div class="carde" *ngFor="let provider of providerList | filter:searchValue; let indexOfelement=index">
+  <div class="carde" *ngFor="let provider of providerList | filter:searchValue; let indexOfelement=index">
     <div class="carde-sub">
-    <img [src]="provider.imageUrl"/>
-    <span class="name">{{provider.name}}</span>
-    <div class="button">
-    <app-button labelButton="contactez-moi" (clicked)="getProvider(provider.name, indexOfelement)"></app-button>
+      <img [src]="provider.imageUrl" />
+      <span class="name">{{provider.name}}</span>
+      <div class="button">
+        <app-button labelButton="contactez-moi" (clicked)="getProvider(provider.name, indexOfelement)"></app-button>
+      </div>
     </div>
+  </div>
 </div>
-</div>
-</div>
- 

@@ -16,7 +16,6 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.fb.group({
       'lastName':['', [Validators.required]],
       'firstName':['', [Validators.required]],
-      'sexe':['', [Validators.required]],
       'email':['', [Validators.required, Validators.email]],
       'telephone':['', [Validators.required]],
       'password':['', [Validators.required,Validators.minLength(8)]],
@@ -30,10 +29,13 @@ export class RegisterComponent implements OnInit {
 
   }
   register(register:FormGroup){
-    if(register.invalid){
-      this.alert = true;
-    }else{
+    if(register.valid){
       this.router.navigateByUrl('')
+      console.log(register.value)
+    }else{
+      this.alert = true;
+      console.log(register.value)
+
     }
 
   }

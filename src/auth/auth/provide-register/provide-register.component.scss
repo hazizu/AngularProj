@@ -47,7 +47,6 @@ app-tel-input {
 
 
 .form-container {
-  background-color: #00000029;
   padding: 5rem 7rem 5rem 7rem;
   border-radius: 2.5rem;
 }
@@ -68,7 +67,7 @@ span.info {
   margin: 2rem 0;
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 950px) {
   /* For mobile phones: */
   .formGroupInput{
     display:flex;
@@ -83,7 +82,7 @@ span.info {
     
   }
   .main{
-    padding: 5rem 0.5rem 0 0.5rem;
+    padding: 5rem 2rem 5rem 2rem;
   }
 
   .part1{

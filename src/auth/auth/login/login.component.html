@@ -1,6 +1,9 @@
+
 <div class="formsContainer">
+
+  <div class="loginForm">
   <div class="login-title">
-    Login
+    Connectez-vous
   </div>
   <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)" class="log">
   <div class="login-form">
@@ -11,11 +14,10 @@
     <div class="form-group">
         <app-password-input label="Mot de passe" controlName="password"></app-password-input>
         <app-input-error [showAlert]="loginForm.get('password')?.invalid && alert"  icon="./../../../assets/report_problem_black_24dp.svg" errorLabel="Mot de passe incorrect">
-
         </app-input-error>
+         
     </div>
     <div class="login-options">
-        <a href="#" class="resterConnecter">Rester connecter</a>
         <a href="#" class="resterConnecter">Mot de passe oublié?</a>
     </div>
     <div class="btn">
@@ -29,4 +31,5 @@
 
   </div>
 </form>
+</div>
 </div>

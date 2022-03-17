@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="home" (click)="home()">
+        Retouner à la page d'accueil
+    </div>
+    <div class="title">Contactez-nous !</div>
+    <div class="formContainer">
+     <form [formGroup]="contactUsForm" (ngSubmit)="sendMessage(contactUsForm)">
+        <app-text-input label="nom et prénom" controlName="name"></app-text-input>
+        <app-input-error icon="home" errorLabel="ce champ est requis" [showAlert]="showAlert"></app-input-error>
+        <app-email-input label="Votre email" controlName="email"></app-email-input>
+        <app-input-error icon="home" errorLabel="ce champ est requis" [showAlert]="showAlert"></app-input-error>
+        <app-text-input label="Objet" controlName="title"></app-text-input>
+        <app-input-error icon="home" errorLabel="ce champ est requis" [showAlert]="showAlert"></app-input-error>
+        <app-text-area-input label="Description" controlName="description"></app-text-area-input>
+        <app-input-error icon="home" errorLabel="ce champ est requis" [showAlert]="showAlert"></app-input-error>
+        <div class="btn">
+            <app-button labelButton="ENVOYEZ">
+            </app-button>
+        </div>
+    </form>
+    </div>
+
+</div> 

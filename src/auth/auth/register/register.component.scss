@@ -1,23 +1,20 @@
 .login-title {
     font-family: 'helvetica';
-    font-size: 7rem;
+    font-size: 2rem;
     font-weight: 100;
     padding: 3rem 0;
   }
   
   .login-form {
-      background-color: rgba(255, 255, 255, 0.15);
-      -webkit-backdrop-filter: blur(5px);
-      backdrop-filter: blur(5px);
-      border-radius: 50px;
-      float: right;
-      padding: 2rem 0rem 2rem 0rem;
-      height: 36rem;
+      // background-color: rgba(255, 255, 255, 0.15);
+      // -webkit-backdrop-filter: blur(5px);
+      // backdrop-filter: blur(5px);
+      // border-radius: 50px;
+      padding: 0rem 0rem 4rem 0rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
       width: 35rem;
-      margin-top: 4rem;
   }
   
   .form-group {
@@ -70,12 +67,14 @@
     font-family: 'helvetica', Neue
   }
   .formsContainer {
-    display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      width: 75%;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
       align-items: center;
       margin: auto;
+      background-color: #34d5eb;
+      height: -webkit-fill-available;
+      
   }
   form.log{
     display: flex;
@@ -117,6 +116,25 @@ button.mat-stepper-previous.step_btn.ng-star-inserted {
 }
 .connectLink{
   cursor: pointer;
+}
+
+@media only screen and (max-width: 600px){
+  .formsContainer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+  background-color: #34d5eb;
+  height: auto;
+  
+  }
+  .login-form{
+    width: 90%;
+}
+
+  
 }
 
 
