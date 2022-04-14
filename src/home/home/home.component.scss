@@ -2,7 +2,6 @@
 
 .menu-bar {
   height: 7.62rem;
-  background-color: #2bbae5;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -30,8 +29,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  min-width: 40rem;
-  max-width: 40rem;
+  min-width: 45rem;
+  max-width: 45rem;
   padding-right: 1rem;
 }
 
@@ -44,25 +43,23 @@
   justify-content: center;
   padding: 0 0.5rem;
   border-top: 10px solid transparent;
-  font-size: 16px;
+  font-size: 18px;
   font-family: 'Roboto';
-  font-weight: 300;
-  color: unset
-  
+  font-weight: 400;
+  color: #8795a1
+
 }
 
 .menu span:hover {
-  background-color: rgba(43, 41, 41, 0.637);
-  color: #FFF;
+  color: #0fccce;
   transition: all 0.5s;
   padding: 0 0.5rem;
   border-top: 10px solid #FFF;
-  max-height: 7rem;
   cursor: pointer;
 }
 span.logout {
   font-weight: 600 !important;
-  color: green !important;
+  color: #0fccce !important;
   margin-left: 1.5rem;
 }
 
@@ -74,18 +71,26 @@ span.logout {
 .menu-icon img {
   width: 50px;
 }
+.menu-icon-clear{
+  display: none;
+  margin-right: 2rem;
+}
+.menu-icon-clear img {
+  width: 50px;
+}
 
 
 .slidIn {
-  height: 25rem;
-  width: 17rem;
-  background: #FFF;
-  transition: all 0.5s;
-  border-radius: 10px;
+ height: 30rem;
+    width: 17rem;
+    background: #FFF;
+    transition: all 0.5s;
+    border-radius: 10px 0px 0px 10px;
 }
 
 .slidOut {
   height: 0rem;
+  width: 0rem;
   transition: all 0.8s;
 
   .text {
@@ -97,15 +102,14 @@ span.logout {
 .mainHeader {
   position: absolute;
   z-index: 1000;
-  right: 0.5rem;
-  top: 5rem;
+  right: 0rem;
+  top: 0rem;
 }
 
 .text {
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-content: space-around;
 }
 
 
@@ -118,17 +122,21 @@ span.logout {
   .menu-icon {
     display: inline-block;
   }
+  .menu-icon-clear{
+    display: inline-block;
+  }
 }
 
 @media only screen and (min-width: 800px) {
-    
+
     main {
       display: none;
+
     }
 
 }
 @media only screen and (max-width: 475px){
   .logo{
-    padding-left: 1rem;
+    padding-left: 0.5rem;
   }
 }

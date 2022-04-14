@@ -3,8 +3,9 @@
     font-size: 2rem;
     font-weight: 100;
     padding: 3rem 0;
+    color: #0fccce;
   }
-  
+
   .login-form {
       // background-color: rgba(255, 255, 255, 0.15);
       // -webkit-backdrop-filter: blur(5px);
@@ -16,7 +17,7 @@
       justify-content: center;
       width: 35rem;
   }
-  
+
   .form-group {
     padding-top: 1rem;
     display: flex;
@@ -34,11 +35,11 @@
     flex-direction: row;
     flex: 1;
   }
-  
+
   .btn {
     margin-top: 1rem;
   }
-  
+
   .login-options {
     display: flex;
     flex-direction: row;
@@ -46,13 +47,13 @@
     justify-content: space-between;
     padding-top: 2rem;
   }
-  
+
   a.resterConnecter {
     text-decoration: none;
     color: #000000fa;
     font-size: 18px;
   }
-  
+
   .registerLink {
     display: flex;
     flex-direction: row;
@@ -60,10 +61,10 @@
     justify-content: space-between;
     margin-top: 3rem;
   }
-  
+
   .registerLink a {
     text-decoration: none;
-    color: #000000fa;
+    color: #0fccce;
     font-family: 'helvetica', Neue
   }
   .formsContainer {
@@ -72,9 +73,8 @@
       width: 100%;
       align-items: center;
       margin: auto;
-      background-color: #34d5eb;
       height: -webkit-fill-available;
-      
+
   }
   form.log{
     display: flex;
@@ -117,6 +117,19 @@ button.mat-stepper-previous.step_btn.ng-star-inserted {
 .connectLink{
   cursor: pointer;
 }
+.connect-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.connection{
+  font-size: 16px;
+  text-decoration: underline;
+  cursor: pointer;
+  color:#0fccce;
+}
 
 @media only screen and (max-width: 600px){
   .formsContainer{
@@ -126,15 +139,14 @@ button.mat-stepper-previous.step_btn.ng-star-inserted {
   align-items: center;
   padding-top: 8rem;
   padding-bottom: 5rem;
-  background-color: #34d5eb;
   height: auto;
-  
+
   }
   .login-form{
     width: 90%;
 }
 
-  
+
 }
 
 

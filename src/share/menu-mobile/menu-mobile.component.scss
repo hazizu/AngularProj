@@ -5,10 +5,12 @@
     align-items: center;
     padding: 1rem 1rem 1.3rem 1rem;
     font-size: 17px;
+    color:#8795a1
 }
 .menu-container:hover{
-    background-color: rgb(53, 152, 177);
+    background-color: #0fccce;
     color: #FFF;
-    transform:scale(1.1);
-    transition: all 0.5s;
+}
+img.menu-image {
+    width: 2rem;
 }

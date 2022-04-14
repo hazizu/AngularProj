@@ -19,19 +19,20 @@
     flex-direction: row;
     align-items: center;
     width: -webkit-fill-available;
+    width: -moz-available;
     justify-content: space-around;
 }
 .btns button {
     outline: none;
     padding: 1rem 2rem;
-    background-color: #2bbae5;
+    background-color: #0fccce;
     color: #FFF;
     border: none;
     border: 1px solid transparent;
 }
 .btns button:hover{
     background-color: #fff;
-    border: 1px solid #2bbae5;
+    border: 1px solid #0fccce;
     transition: all 0.3s;
-    color: #2bbae5;
+    color: #0fccce;
 }

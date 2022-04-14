@@ -1,4 +1,4 @@
-<div class="menu-container" (click)="getClicked()">
+<div class="menu-container" (click)="getClicked()" [ngStyle]="styles">
     <span class="menu-text">{{text}}</span>
     <img class="menu-image" [src]="imgUrl">
 </div>

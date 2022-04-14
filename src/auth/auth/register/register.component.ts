@@ -39,5 +39,7 @@ export class RegisterComponent implements OnInit {
     }
 
   }
-
+  goToConnect(){
+    this.router.navigateByUrl('')
+  }
 }

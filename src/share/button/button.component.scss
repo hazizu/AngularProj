@@ -1,19 +1,15 @@
 button.btn{
     outline: none;
-    border: none; 
+    border: none;
     font-size: 18px;
     color: #FFF;
-    background: #00000078;
+    background: #0fccce;
     cursor: pointer;
-    border:1px solid transparent;
     padding: 1rem;
     width: 100%;
   }
   button:hover{
-      background-color:rgba(255, 255, 255, 0.3);
-      border:1px solid black;
-      color:#00000078 ;
-      transition: all 0.3s ease;
-  
+      background-color: #1db6b6;
+      color:#FFFFFF ;
+
   }
-  

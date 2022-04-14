@@ -28,9 +28,6 @@ export class HomePageComponent implements OnInit {
       this.providerLists = results;
       console.log("list of providers", results);
     })
-    this.store.dispatch(setProviderList({provider:this.providerLists}))
-
-
   }
 
 }

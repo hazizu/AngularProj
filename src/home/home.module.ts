@@ -5,6 +5,8 @@ import { HomeComponent } from './home/home.component';
 import { HomeRoutingModule } from './home.rounting';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ProviderDetailsComponent } from './provider-details/provider-details.component';
+import {MatIconModule} from "@angular/material/icon";
+
 
 
 
@@ -12,12 +14,14 @@ import { ProviderDetailsComponent } from './provider-details/provider-details.co
   declarations: [
     HomeComponent,
     HomePageComponent,
-    ProviderDetailsComponent
+    ProviderDetailsComponent,
+
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    ShareModule
+    ShareModule,
+    MatIconModule,
   ]
 })
 export class HomeModule { }

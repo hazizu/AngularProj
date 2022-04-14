@@ -22,7 +22,10 @@ export class HomeComponent implements OnInit {
   open?:boolean
   list$?:Observable<any>
   list:any
- 
+  hideMobileIcon:boolean = true
+  IconShow:boolean=true;
+  IconClear:boolean=false;
+
 
 
   constructor(
@@ -32,8 +35,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
-
     this.list$ = this.store.select(AppStore.providerList).pipe(
       map(
         (state:any)=>{
@@ -43,9 +44,9 @@ export class HomeComponent implements OnInit {
     )
     this.list$.subscribe((res)=>{
       this.list = res
-      console.log(this.list)
+      console.log("providers providers",this.list)
     })
-   
+
   }
 
   getProvideRegister(){
@@ -53,18 +54,32 @@ export class HomeComponent implements OnInit {
   }
   drop(){
     this.open = !this.open;
+    this.IconShow = false;
+    this.IconClear = true
+  }
+  dropClear(){
+    this.open = !this.open;
+    this.IconClear = false;
+    this.IconShow = true;
   }
   getServices(){
-    this.router.navigateByUrl('home/our-services')
     this.open = !this.open;
+    this.IconClear = false;
+    this.IconShow = true;
+    this.router.navigateByUrl('home/our-services')
+    
   }
   getHome(){
     this.router.navigateByUrl('home/accueil')
     this.open = !this.open;
+    this.IconClear = false;
+    this.IconShow = true;
   }
   getContactForm(){
     this.router.navigateByUrl('contactez-nous')
     this.open = !this.open;
+    this.IconClear = false;
+    this.IconShow = true;
   }
   deconnexion(){
     const dialogref = this.dialog.open(ConfirmeComponent,{
@@ -73,13 +88,16 @@ export class HomeComponent implements OnInit {
         titleMessage:"Déconnection",
         dialogMessage:"Voulez-vous vraiment vous déconnecter?"
       }
-    })
+    });
    dialogref.afterClosed().subscribe(result => {
      if(result){
-       console.log('oui',result)
-       this.router.navigateByUrl("")
+       console.log('oui',result);
+       this.router.navigateByUrl("");
      }else{
-       alert('non')
+      this.open = !this.open;
+      this.IconClear = false;
+      this.IconShow = true;
+
      }
    })
   }

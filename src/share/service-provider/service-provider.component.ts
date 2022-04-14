@@ -48,7 +48,7 @@ export class ServiceProviderComponent implements OnInit {
     },
     {
       imageUrl:"./../../assets/portrait-d-une-femme-africaine-pour-laver-le-linge-a-la-main-dans-des-seaux-accra-ghana-c5hg23.jpg",
-      name:"BABE ALICE "
+      name:"BABE ALICE"
     },
     {
       imageUrl:"./../../assets/portrait-d-une-femme-africaine-pour-laver-le-linge-a-la-main-dans-des-seaux-accra-ghana-c5hg23.jpg",

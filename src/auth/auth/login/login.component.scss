@@ -6,6 +6,7 @@
   padding-bottom: 3rem;
   font-weight: 400;
   line-height: 1;
+  color: #0fccce;
 }
 
 .login-form {
@@ -35,7 +36,7 @@
 
 a.resterConnecter {
   text-decoration: none;
-  color: #000000fa;
+  color: #0fccce;
   font-size: 16px;
 }
 
@@ -45,13 +46,18 @@ a.resterConnecter {
   align-items: center;
   justify-content: space-between;
   margin-top: 3rem;
+
+}
+
+.registerLink a {
+  color: #0fccce;
+  font-size: 1rem;
+  font-family: 'Roboto'sans-serif;
+  text-decoration: underline
 }
 
 .registerLink a {
   text-decoration: none;
-  color: #000000fa;
-  font-family: 'Roboto'sans-serif;
-  text-decoration: underline
 }
 
 .formsContainer {
@@ -74,7 +80,7 @@ form.log {
 }
 
 @media only screen and (max-width: 600px) {
- 
+
 
   .login-form {
     padding: 0rem;

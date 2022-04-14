@@ -8,25 +8,31 @@
             <span (click)="getServices()">nos services</span>
             <span>offres-actu</span>
             <span (click)="getContactForm()">Contactez-nous</span>
-            <span (click)="getHome()">Home</span> 
+            <span (click)="getHome()">Home</span>
             <span (click)="getProvideRegister()">Prestataire?</span>
-            <span class="logout" (click)="deconnexion()">DÉCONNEXION</span>  
+            <span class="logout" (click)="deconnexion()">DÉCONNEXION</span>
         </div>
-        <div class="menu-icon" (click)="drop()">
-            <img src="./../../assets/menu_black_24dp.svg">
+        <div class="menu-icon" *ngIf="IconShow && !this.open" (click)="drop()">
+            <!--<img src="./../../assets/menu_black_24dp.svg">-->
+          <mat-icon class="menu-icons">menu</mat-icon> 
         </div>
+
         <main [ngClass]="{mainHeader:true, slidIn:open, slidOut:!open}">
+            <div class="menu-icon-clear" *ngIf="IconClear" (click)="dropClear()">
+                <!-- <img src="./../../assets/edit_black_24dp.svg"> -->
+                <mat-icon class="mobile-clear">clear</mat-icon>
+            </div>
         <div class="text">
-            <app-menu-mobile imgUrl="./../../assets/edit_black_24dp.svg" text="nos services" (clicked)="getServices()"></app-menu-mobile>
-            <app-menu-mobile imgUrl="./../../assets/menu_black_24dp.svg" text="offres-actu"></app-menu-mobile>
-            <app-menu-mobile imgUrl="./../../assets/menu_black_24dp.svg" text="Contactez-nous" (clicked)="getContactForm()"></app-menu-mobile>
-            <app-menu-mobile imgUrl="./../../assets/menu_black_24dp.svg" text="Home" (clicked)="getHome()"></app-menu-mobile>
-            <app-menu-mobile imgUrl="./../../assets/menu_black_24dp.svg" text="Prestataire?" (clicked)="getProvideRegister()"></app-menu-mobile>
-            <app-menu-mobile imgUrl="./../../assets/menu_black_24dp.svg" text="DÉCONNEXION" (clicked)="deconnexion()"></app-menu-mobile>
+            <app-menu-mobile imgUrl="./../../assets/svg/services.svg" text="nos services" (clicked)="getServices()"></app-menu-mobile>
+            <app-menu-mobile imgUrl="./../../assets/svg/offre-actu.svg" text="offres-actu"></app-menu-mobile>
+            <app-menu-mobile imgUrl="./../../assets/svg/contact-us.svg" text="Contactez-nous" (clicked)="getContactForm()"></app-menu-mobile>
+            <app-menu-mobile imgUrl="./../../assets/svg/home.svg" text="Home" (clicked)="getHome()"></app-menu-mobile>
+            <app-menu-mobile imgUrl="./../../assets/svg/perstataire.svg" text="Prestataire?" (clicked)="getProvideRegister()"></app-menu-mobile>
+            <app-menu-mobile imgUrl="./../../assets/svg/logout.svg" text="DÉCONNEXION" (clicked)="deconnexion()"></app-menu-mobile>
         </div>
-        
+
     </main>
     </div>
-   
-<router-outlet></router-outlet>  
+
+<router-outlet></router-outlet>
 </div>

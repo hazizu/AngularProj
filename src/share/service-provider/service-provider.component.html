@@ -5,14 +5,39 @@
   <mat-icon class="seachIcon">search</mat-icon>
 </div>
 
-<div class="provider-container">
+<!-- <div class="provider-container">
   <div class="carde" *ngFor="let provider of providerList | filter:searchValue; let indexOfelement=index">
     <div class="carde-sub">
-      <img [src]="provider.imageUrl" />
+      <img [src]="provider.imageUrl"/>
       <span class="name">{{provider.name}}</span>
       <div class="button">
         <app-button labelButton="contactez-moi" (clicked)="getProvider(provider.name, indexOfelement)"></app-button>
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+<div class="demo">
+  <div class="mainCard">
+    <!-- <div class="mainCardHeader"></div> -->
+    <div class="mainCardContent" *ngFor="let provider of providerList | filter:searchValue; let indexOfelement=index">
+      <div class="miniCard">
+        <img [src]="provider.imageUrl"/>
+        <span class="name">{{provider.name}}</span>
+        <div class="button">
+          <app-button labelButton="contactez-moi" (clicked)="getProvider(provider.name, indexOfelement)"></app-button>
+        </div>
+      </div>
+      <!-- <div class="miniCard"></div>
+      <div class="miniCard"></div>
+      <div class="miniCard"></div>
+      <div class="miniCard"></div>
+      <div class="miniCard"></div>
+      <div class="miniCard"></div>
+      <div class="miniCard"></div>
+      <div class="miniCard"></div>
+      <div class="miniCard"></div> -->
+    </div>
+  </div>
+    
+  </div>

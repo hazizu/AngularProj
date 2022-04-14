@@ -9,6 +9,7 @@ export class MenuMobileComponent implements OnInit {
 
   @Input() imgUrl?: string;
   @Input() text?: string;
+  @Input() styles:any ={}
   @Output() clicked:EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor() { }
 
