@@ -19,8 +19,8 @@
 
 <div class="demo">
   <div class="mainCard">
-    <!-- <div class="mainCardHeader"></div> -->
-    <div class="mainCardContent" *ngFor="let provider of providerList | filter:searchValue; let indexOfelement=index">
+    <!-- <div class="mainCardHeader"></div> filter:searchValue -->
+    <div class="mainCardContent" *ngFor="let provider of providerList | filter:searchValue | paginate:{itemsPerPage: 4, currentPage: page} ; let indexOfelement=index">
       <div class="miniCard">
         <img [src]="provider.imageUrl"/>
         <span class="name">{{provider.name}}</span>
@@ -38,6 +38,11 @@
       <div class="miniCard"></div>
       <div class="miniCard"></div> -->
     </div>
+    <div class="pagination-container">
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
   </div>
-    
+  
+
+  
   </div>

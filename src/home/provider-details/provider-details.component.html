@@ -1,18 +1,26 @@
-
-<div class="provider-container">
+<app-select-clothes-form [showSelectClothesForm]="showSelectClothesForm" (clicked)="back()"></app-select-clothes-form>
+<div class="provider-container" *ngIf="!showSelectClothesForm">
+  <div class="accueil" (click)="returnHome()">Accueil/</div>
+    <div class="name">
+        AKISSI FATIMA
+    </div>
+    <div class="block-info">
     <div class="provider-img">
         <img class="provider-image" src="./../../assets/portrait-d-une-femme-africaine-pour-laver-le-linge-a-la-main-dans-des-seaux-accra-ghana-c5hg23.jpg">
     </div>
     <div class="informations">
         <div class="names"> AKISSI fatima</div>
-        <div class="number">+225 0709456567</div>
         <div class="adress">Yopougon annaneraie</div>
         <div class="type-provide">femme fanico</div>
         <div class="available">
             <div class="signe"></div>
             <span>Disponible actuelement</span>
         </div>
-        <app-button width="100%" labelButton="Retour à page précédente" (clicked)="return()"></app-button>
+      <app-button  labelButton="Contacter ce prestataire" (clicked)="valide()"></app-button>
+
     </div>
+
+</div>
+
 </div>
 

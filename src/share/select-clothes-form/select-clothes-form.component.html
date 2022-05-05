@@ -1,0 +1,42 @@
+<!-- <div class="mai-container" *ngIf="showSelectClothesForm">
+    <div class="return" (click)="return()">Voir les informtions du prestataire</div>
+    <div class="formHeader">
+        <div class="libelle">Libellé</div>
+        <div class="selected">Choisir</div>
+        <div class="quantite">Quantité</div>
+        <div class="prixUnitaire">Prix prixUnitaire</div>
+        <div class="prixGlobale">Prix Globale</div>
+    </div>
+    <div class="element" *ngFor="let element of formPage">
+    <div class="table-row">
+        <div>{{element.libelle}}</div>
+        <div>
+            <input type="checkbox" name="selected">
+            {{element.selected}}</div>
+        <div>{{element.quantite}}</div>
+        <div>{{element. prixUnitaire}}</div>
+        <div>{{element.prixGlobale}}</div>
+    </div>
+    </div>
+</div> -->
+
+<div class="container" *ngIf="showSelectClothesForm">
+    <div class="return" (click)="return()">Voir les informtions du prestataire</div>
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-1">Libellé</div>
+        
+        <div class="col col-3">Quantité</div>
+        <div class="col col-4">Prix prixUnitaire</div>
+        <div class="col col-4">Prix Globale</div>
+      </li>
+      <li class="table-row" *ngFor="let element of formPage">
+        <div class="col col-1" data-label="Job Id">{{element.libelle}} <input type="checkbox" name="selected"></div>
+        <!-- <div class="col col-2" data-label="Customer Name"><input type="checkbox" name="selected"></div> -->
+        <div class="col col-3" data-label="Amount"><input type="number" name="quantite"></div>
+        <div class="col col-4" data-label="Payment Status">{{element. prixUnitaire}}</div>
+        <div class="col col-4" data-label="Payment Status">{{element.prixGlobale}}</div>
+      </li>
+    </ul>
+</div>    
+

@@ -1,40 +1,68 @@
 img.provider-image{
     width: 26rem;
     height: 20rem;
+  margin-right: 2rem;
+}
+.accueil{
+  position:absolute;
+  top: 1rem;
+  left: 1rem;
+  color: #0fccce;
+  font-family: 'Roboto';
+  font-size: 1.1rem;
+  cursor: pointer;
 }
 .provider-container {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-top: 3rem;
     padding: 5rem 68px;
-    background-color: #a0ccf373;
+    border:  3px solid #0fccce;
+    margin-top: 11rem;
+  position: relative;
+}
+.block-info {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    align-items: center;
+}
+.name {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bolder;
+    color: #6e6e6e99;
+    margin-top: -2rem;
+  letter-spacing: 7px;
 }
 
-.informations {
-    margin-left: 4rem;
-}
 .names {
-    font-size: 4rem;
+    font-size: 3rem;
     padding: 0 0 2rem 0;
     font-family: roboto, serif;
     line-height: 1;
 }
 .number {
     font-size: 2.1rem;
-    padding: 0 0 3rem 0;
+    padding: 0 0 2rem 0;
     font-family:roboto,
 }
 .adress{
     font-size: 2rem;
-    padding: 0 0 3rem 0;
+    padding: 0 0 2rem 0;
     font-family:roboto;
     line-height: 0.9
 }
 .type-provide{
     font-size: 1.8rem;
-    padding: 0 0 3rem 0;
+    padding: 0 0 2rem 0;
     font-family:roboto,
 }
 .signe {
@@ -45,7 +73,7 @@ img.provider-image{
 }
 .available span{
     font-size: 1.5rem;
-    padding: 0 0 3rem 0;
+    padding: 0 0 2rem 0;
     font-family:roboto;
     margin-left:1rem;
     line-height: 0.9;
@@ -54,67 +82,51 @@ img.provider-image{
     display: flex;
     align-items: baseline;
 }
-@media screen and (max-width:1262px) {
-    .provider-container {
-        margin-left: 2%;
-        margin-right: 2%;
-        padding: 5rem 1rem;
-    }
-    @media screen and (max-width:952px){
-        .provider-container{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width:100%;
-        margin-left: 0;
-        margin-right: 0;
-        padding: 5rem 0rem;
-        margin-top: 0rem;
-        }
-        .informations{
-            margin-left: 1.5rem;
-            margin-top: 1rem;
-        }
-    
 
-   
-        .provider-container{
-        }
-        img.provider-image{
-            width: 20rem;
-            height: 16rem;
-        }
-
-        .names {
-            font-size: 3rem;
-            padding: 0 0 2rem 0;
-            font-family: roboto, serif;
-            line-height: 1;
-        }
-        .number {
-            font-size: 1.8rem;
-            padding: 0 0 3rem 0;
-            font-family:roboto,
-        }
-        .adress{
-            font-size: 1.5rem;
-            padding: 0 0 3rem 0;
-            font-family:roboto;
-            line-height: 0.9
-        }
-        .type-provide{
-            font-size: 1.5rem;
-            padding: 0 0 3rem 0;
-            font-family:roboto,
-        }
-        .signe {
-            width: 13px;
-            height: 13px;
-            background-color: #46b94b;
-            border-radius: 50%;
-        }
-    }
+@media screen and (max-width:800px){
+  img.provider-image{
+    width: 20rem;
+    height: 14rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+  .block-info {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .informations{
+    width: -webkit-fill-available;
+    margin-top: 2rem;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .names{
+    font-size: 2.2rem;
+    line-height: 1;
+  }
+  .name{
+        line-height:1.5rem;
+    font-size: 2rem;
+  }
+  .adress{
+    font-size: 1.4rem;
+  }
+  .type-provide {
+    font-size: 1.4rem;
+  }
+  .available span{
+    font-size: 1.4rem;
+    line-height: 0.9;
+  }
+  .provider-container {
+    margin-left: 1%;
+    margin-right: 1%;
+    padding: 5rem 1rem;
+  }
 }
-  
+
 

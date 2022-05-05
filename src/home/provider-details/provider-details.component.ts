@@ -13,14 +13,22 @@ import { AppStore } from 'src/_enumes/stores.enum';
 export class ProviderDetailsComponent implements OnInit {
   providerList$?:Observable<any>
   providerList:any
+  showSelectClothesForm:boolean=false
 
   constructor(private router: Router,private store:Store<typeof reducers>) { }
 
   ngOnInit(): void {
 
   }
-  return(){
+
+  returnHome(){
     this.router.navigateByUrl('home/accueil')
+  }
+  valide(){
+    this.showSelectClothesForm = true;
+  }
+  back(){
+    this.showSelectClothesForm = false;
   }
 
 }

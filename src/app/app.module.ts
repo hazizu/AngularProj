@@ -10,6 +10,7 @@ import { reducers } from 'src/_contants/store.reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import {MatDialogModule} from '@angular/material/dialog';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -26,6 +27,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    NgxPaginationModule,
     
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({

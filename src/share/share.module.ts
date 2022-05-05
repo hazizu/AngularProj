@@ -23,6 +23,7 @@ import { ServicesPageComponent } from './services-page/services-page.component';
 import { ContactUsFormComponent } from './contact-us-form/contact-us-form.component';
 import { TextAreaInputComponent } from './text-area-input/text-area-input.component';
 import { ConfirmeComponent } from './confirme/confirme.component';
+import { SelectClothesFormComponent } from './select-clothes-form/select-clothes-form.component';
 
 
 
@@ -48,7 +49,8 @@ import { ConfirmeComponent } from './confirme/confirme.component';
     ServicesPageComponent,
     ContactUsFormComponent,
     TextAreaInputComponent,
-    ConfirmeComponent
+    ConfirmeComponent,
+    SelectClothesFormComponent
    
   ],
   imports: [
@@ -75,7 +77,8 @@ import { ConfirmeComponent } from './confirme/confirme.component';
     OurSeviceCardesComponent,
     ServicesPageComponent,
     ContactUsFormComponent,
-    ConfirmeComponent
+    ConfirmeComponent,
+    SelectClothesFormComponent
 
    
   ]
