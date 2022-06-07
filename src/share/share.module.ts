@@ -24,6 +24,12 @@ import { ContactUsFormComponent } from './contact-us-form/contact-us-form.compon
 import { TextAreaInputComponent } from './text-area-input/text-area-input.component';
 import { ConfirmeComponent } from './confirme/confirme.component';
 import { SelectClothesFormComponent } from './select-clothes-form/select-clothes-form.component';
+import { ResumeCommandeComponent } from './resume-commande/resume-commande.component';
+import { SucessAlertComponent } from './sucess-alert/sucess-alert.component';
+import { LottieModule } from 'ngx-lottie';
+import { ResumeCommandeMobileComponent } from './resume-commande-mobile/resume-commande-mobile.component';
+import { AlertComponent } from './alert/alert.component';
+
 
 
 
@@ -50,8 +56,11 @@ import { SelectClothesFormComponent } from './select-clothes-form/select-clothes
     ContactUsFormComponent,
     TextAreaInputComponent,
     ConfirmeComponent,
-    SelectClothesFormComponent
-   
+    SelectClothesFormComponent,
+    ResumeCommandeComponent,
+    SucessAlertComponent,
+    ResumeCommandeMobileComponent,
+    AlertComponent
   ],
   imports: [
     CommonModule,
@@ -61,6 +70,8 @@ import { SelectClothesFormComponent } from './select-clothes-form/select-clothes
     Ng2SearchPipeModule,
     NgxIntlTelInputModule,
     NgxPaginationModule,
+    LottieModule 
+
   ],
   exports: [
     EmailInputComponent,
@@ -78,9 +89,10 @@ import { SelectClothesFormComponent } from './select-clothes-form/select-clothes
     ServicesPageComponent,
     ContactUsFormComponent,
     ConfirmeComponent,
-    SelectClothesFormComponent
-
-   
+    SelectClothesFormComponent,
+    ResumeCommandeComponent,
+    SucessAlertComponent,
+    AlertComponent
   ]
 })
 export class ShareModule { }

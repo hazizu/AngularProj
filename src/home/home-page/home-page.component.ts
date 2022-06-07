@@ -14,6 +14,8 @@ import { setProviderList } from 'src/_store/providersList/providerList.action';
 export class HomePageComponent implements OnInit {
   providerList$?:Observable<any>
   providerLists:any;
+  commandeData$?:Observable<any>
+  commandeData:any
   
 
   constructor(private store:Store<typeof reducers>) { }
@@ -29,5 +31,6 @@ export class HomePageComponent implements OnInit {
       console.log("list of providers", results);
     })
   }
+  }
 
-}
+

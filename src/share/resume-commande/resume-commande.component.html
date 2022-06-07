@@ -1,0 +1,25 @@
+<div class="main" *ngIf="resumeArray?.length">
+    <div class="resumeTitle">
+        {{resumeTitle}}
+    </div>
+
+    <div class="elements-block" *ngFor="let el of resumeArray">
+        <div class="element">
+            <div class="el1">
+                <span class="libelle">{{el.libelle}}</span>
+                <span class="quantite"> Qtes: {{el.quantite}}</span>
+            </div>
+            <div class="el2"><span>{{el.price}} Fcfa</span></div>
+            
+        </div>
+        
+    </div>
+
+    <div class="globalePrice" *ngIf="resumeArray?.length">
+        <span class="globalePriceLib">A payé:</span> 
+        <span class="globalePriceVal">{{calculeGlobale()}} Fcfa</span>
+    </div>
+    <div class="valideCommande">
+        <app-button labelButton="Valider" (clicked)="valideCommande()"></app-button>
+    </div>
+</div>

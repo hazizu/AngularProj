@@ -11,13 +11,19 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { LottieModule } from 'ngx-lottie';
+
+export function playerFactory(): any {  
+  return import('lottie-web');
+}
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,  
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -28,6 +34,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BrowserAnimationsModule,
     MatDialogModule,
     NgxPaginationModule,
+    LottieModule.forRoot({player:playerFactory}),
     
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({

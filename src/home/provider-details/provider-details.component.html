@@ -1,10 +1,10 @@
-<app-select-clothes-form [showSelectClothesForm]="showSelectClothesForm" (clicked)="back()"></app-select-clothes-form>
-<div class="provider-container" *ngIf="!showSelectClothesForm">
+<!-- <app-select-clothes-form [showSelectClothesForm]="showSelectClothesForm" (clicked)="back()"></app-select-clothes-form> -->
+<div class="provider-container" *ngIf="!showSelectClothesForm" id="dowloadTemp" #dowloadTemp>
   <div class="accueil" (click)="returnHome()">Accueil/</div>
-    <div class="name">
+    <div class="name" >
         AKISSI FATIMA
     </div>
-    <div class="block-info">
+    <div class="block-info"> 
     <div class="provider-img">
         <img class="provider-image" src="./../../assets/portrait-d-une-femme-africaine-pour-laver-le-linge-a-la-main-dans-des-seaux-accra-ghana-c5hg23.jpg">
     </div>
@@ -17,6 +17,7 @@
             <span>Disponible actuelement</span>
         </div>
       <app-button  labelButton="Contacter ce prestataire" (clicked)="valide()"></app-button>
+      <!-- <app-button labelButton="Télécharger" (click)="download()"></app-button> -->
 
     </div>
 

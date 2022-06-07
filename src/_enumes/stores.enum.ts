@@ -1,3 +1,4 @@
 export enum AppStore{
-    providerList='providerList'
+    providerList='providerList',
+    commandeData = 'commandeData',
 }

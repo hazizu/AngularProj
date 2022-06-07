@@ -1,7 +1,7 @@
 .homeContainer {}
 
 .menu-bar {
-  height: 7.62rem;
+  height: 5rem;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -118,9 +118,35 @@ span.logout {
   height: 100%;
 }
 
+.notification img {
+  width: 3rem;
+}
+.notification {
+  position: relative;
+  width: 4rem;
+  display: none;
+}
+span.total { 
+  position: absolute;
+  top: -7px;
+  right: 2rem;
+  padding: 0rem 0.6rem;
+  background-color: yellow;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+}
+
+
+
 
 
 @media only screen and (max-width: 800px) {
+  
+  .notification {
+    position: relative;
+    width: 4rem;
+    display:inline-block;
+  }
   .menu {
     display: none;
   }
@@ -134,7 +160,7 @@ span.logout {
 }
 
 @media only screen and (min-width: 800px) {
-
+ 
     main {
       display: none;
 

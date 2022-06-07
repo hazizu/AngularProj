@@ -12,11 +12,16 @@
             <span (click)="getProvideRegister()">Prestataire?</span>
             <span class="logout" (click)="deconnexion()">DÉCONNEXION</span>
         </div>
+        <div class="notification" (click)="getResumeMobile()" *ngIf="commandeData.length">
+            <img src ='./../../assets/svg/panierLinge.png '>
+            <span class="total">{{commandeData.length}}</span>
+          </div>
+
         <div class="menu-icon" *ngIf="IconShow && !this.open" (click)="drop()">
             <!--<img src="./../../assets/menu_black_24dp.svg">-->
           <mat-icon class="menu-icons">menu</mat-icon> 
         </div>
-
+        
         <main [ngClass]="{mainHeader:true, slidIn:open, slidOut:!open}">
             <div class="menu-icon-clear" *ngIf="IconClear" (click)="dropClear()">
                 <!-- <img src="./../../assets/edit_black_24dp.svg"> -->

@@ -2,7 +2,7 @@ import { Page } from './../../../node_modules/ngx-pagination/dist/pagination-con
 import { INFERRED_TYPE } from '@angular/compiler/src/output/output_ast';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import * as ɵngcc5 from 'ngx-bootstrap/dropdown';
+
 
 @Component({
   selector: 'app-service-provider',

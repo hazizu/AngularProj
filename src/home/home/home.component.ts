@@ -6,6 +6,8 @@ import { map, Observable } from 'rxjs';
 import { reducers } from 'src/_contants/store.reducers';
 import { AppStore } from 'src/_enumes/stores.enum';
 import { ConfirmeComponent } from 'src/share/confirme/confirme.component';
+import { ResumeCommandeMobileComponent } from 'src/share/resume-commande-mobile/resume-commande-mobile.component';
+import { setCommandeData } from 'src/_store/commandeData/commandeData.action';
 
 export interface DialogData{
   dialogMessage:string;
@@ -25,6 +27,8 @@ export class HomeComponent implements OnInit {
   hideMobileIcon:boolean = true
   IconShow:boolean=true;
   IconClear:boolean=false;
+  commandeData$?:Observable<any>
+  commandeData:any
 
 
 
@@ -46,6 +50,19 @@ export class HomeComponent implements OnInit {
       this.list = res
       console.log("providers providers",this.list)
     })
+
+    this.commandeData$ = this.store.select(AppStore.commandeData).pipe(
+      map(
+        (state:any)=>{
+          return state.commandeData;
+        }
+      )
+    )
+    this.commandeData$.subscribe((res)=>{
+      this.commandeData = res
+      console.log("commandeData select",this.commandeData)
+    })
+   
 
   }
 
@@ -100,5 +117,15 @@ export class HomeComponent implements OnInit {
 
      }
    })
+  }
+  getResumeMobile(){
+    this.dialog.open(ResumeCommandeMobileComponent,{
+      width:"100vw",
+      data:this.commandeData,
+      position:{
+        bottom:'0px' 
+      }
+    })
+    this.store.dispatch(setCommandeData({commandeData:[...this.commandeData]}))
   }
 }

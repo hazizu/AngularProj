@@ -1,4 +1,6 @@
-<button class="btn" 
-type="submit" (click)="getButtonValue()" 
+<button class="btn"
+[ngStyle]="styles" 
+type="submit" 
+(click)="getButtonValue()" 
 >{{labelButton}}</button>
 

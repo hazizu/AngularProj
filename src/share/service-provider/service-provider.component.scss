@@ -5,6 +5,9 @@
 //     width: 14rem;
 //     margin: 1rem;
 // }
+.container{
+  margin-top: 10rem;
+}
 span.name {
     font-size: 24px;
     display: block;
@@ -130,7 +133,7 @@ body {
 
 .mainCard {
   margin: 60px auto;
-  width: 80%;
+  width: 100%;
   animation-name: mainCard;
   animation-duration: 1s;
   animation-delay: 0s;

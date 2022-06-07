@@ -66,3 +66,23 @@ mat-icon.mat-icon.notranslate.menu-icons.material-icons.mat-icon-no-color {
   margin-right: 2rem;
   color: #0fccce;
 }
+// .mat-dialog-container{
+//   position: absolute !important;
+//   bottom: 0rem !important;
+//   height: 75vh !important;
+//   min-width: 100% !important;
+//   left: 0;
+
+// }
+.mat-dialog-container {
+  display: block;
+  padding: 24px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  overflow: auto;
+  outline: 0;
+  width: 100%;
+  height: auto;
+  min-height: inherit;
+  max-height: inherit;
+}
