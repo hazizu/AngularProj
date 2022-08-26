@@ -1,0 +1,39 @@
+<div class="profile">
+    
+    <div class="profile-clear" (click)="clear()">Fermer</div>
+
+    <div class="profile-image">
+        <img [src]="user.profile_image_url">
+    </div>
+
+    <div class="information">
+        <div class="groupe">
+            <span class="title">Non Utilisateur</span>
+            <span class="value">{{user.username}}</span>
+        </div>
+        <div class="groupe">
+            <span class="title">Email</span>
+            <span class="value">{{user.email}}</span>
+        </div>
+        <div class="groupe">
+            <span class="title">Sexe</span>
+            <span class="value">{{user.gender_related}}</span>
+        </div>
+        <div class="groupe">
+            <span class="title">Commune</span>
+            <span class="value">{{user.username}}</span>
+        </div>
+        <div class="groupe">
+            <span class="title">Prestation</span>
+            <span class="value">{{user.speciality_related}}</span>
+        </div>
+        <div class="groupe">
+            <span class="title">Téléphone</span>
+            <span class="value">{{user.phone_number}}</span>
+        </div>
+        
+    </div>
+</div>
+    
+
+

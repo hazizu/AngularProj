@@ -2,11 +2,13 @@ import { ResumeCommandeMobileComponent } from './../resume-commande-mobile/resum
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { findIndex } from 'rxjs';
+import { findIndex, Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { reducers } from 'src/_contants/store.reducers';
 import { setCommandeData } from 'src/_store/commandeData/commandeData.action';
 import { AlertComponent } from '../alert/alert.component';
+import { AppStore } from 'src/_enumes/stores.enum';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-select-clothes-form',
@@ -26,6 +28,10 @@ export class SelectClothesFormComponent implements OnInit {
   mut2:number=0
   mut3:number=0
   element:any
+  openPanier:boolean = false
+  openPanierResume$?:Observable<any>
+  commandeData$?:Observable<any>
+  commandeData:any
   
   resumeCommande:any[] = []
   
@@ -47,6 +53,30 @@ export class SelectClothesFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  this.openPanierResume$ = this.store.select(AppStore.commandeData).pipe(
+    map(
+      (state: any)=>{
+        return state.loading
+      }
+    )
+  )
+  this.openPanierResume$.subscribe((res)=>{
+    this.openPanier = res
+  })
+
+
+  this.commandeData$ = this.store.select(AppStore.commandeData).pipe(
+    map(
+      (state:any)=>{
+        return state.commandeData;
+      }
+    )
+  )
+  this.commandeData$.subscribe((res)=>{
+    this.commandeData = res
+    console.log("commandeData select",this.commandeData)
+  })
+    
 
     
    
@@ -90,9 +120,10 @@ export class SelectClothesFormComponent implements OnInit {
     obj.libelle = libelle
     obj.quantite = this.mutValue
     obj.price = price
-    console.log("final commande",obj)
+    obj.id = 0
     this.mutValue =0
       this.verifierCommande(obj, this.resumeCommande,libelle,quantite)
+      
   }
   confirmRobe(libelle: string, quantite:number){
     const obj :any  = {}
@@ -100,8 +131,9 @@ export class SelectClothesFormComponent implements OnInit {
     obj.libelle = libelle
     obj.quantite = this.mut2
     obj.price = price
-    console.log("final commande",obj)
-    this.mut2 =0
+    obj.id = 1
+    this.mut2 = 0
+
       this.verifierCommande(obj,this.resumeCommande,libelle,quantite)
   }
 
@@ -111,7 +143,7 @@ export class SelectClothesFormComponent implements OnInit {
     obj.libelle = libelle
     obj.quantite = this.mut1
     obj.price = price
-    console.log("final commande",obj)
+    obj.id = 2
     this.mut1=0
       this.verifierCommande(obj,this.resumeCommande,libelle,quantite)
   }
@@ -121,7 +153,7 @@ export class SelectClothesFormComponent implements OnInit {
     obj.libelle = libelle
     obj.quantite = this.mut3
     obj.price = price
-    console.log("final commande",obj)
+    obj.id =3
     this.mut3=0
       this.verifierCommande(obj,this.resumeCommande,libelle,quantite)
     
@@ -131,7 +163,6 @@ export class SelectClothesFormComponent implements OnInit {
       this.mutValue--
       this.mutValue = this.mutValue
     }
-
   }
   increChem() {
       this.mutValue++
@@ -176,6 +207,7 @@ export class SelectClothesFormComponent implements OnInit {
    })
 
   }
+  
 
    verifierCommande(obj:any, list:any, libelle:string,quantite:number) {
      if(quantite == 0){
@@ -187,8 +219,6 @@ export class SelectClothesFormComponent implements OnInit {
         console.log(list)
         this.store.dispatch(setCommandeData({commandeData:[...list]}))
       }
-     
-   
     if(list.length){
       i = this.findElement(list,libelle)
       if(!i){

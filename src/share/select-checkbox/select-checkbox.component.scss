@@ -1,0 +1,79 @@
+.input-div {
+    height: 3rem;
+    background-color: #FFF;
+    width:inherit;
+    border: 1px solid rgb(231, 231, 231);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+span.placeholder {
+    margin-left: 1rem;
+    color: gray;
+    font-size: 1.2rem;
+}
+
+.labelle {
+    font-size: 18px;
+    padding-bottom: 0.6rem;
+    padding-top: 0.7rem;
+}
+.selected-list {
+    border-bottom: 1px solid darkgray;
+    height: 2rem;
+    padding-top: 0.5rem;
+}
+
+.selected-list span {
+    margin-left: 0.3rem;
+    background-color: #0fccce1c;
+    padding: 0.2rem 0.4rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    color: #0FCCCE;
+    font-weight: 300;
+}
+.btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #0fccce;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    font-size: 1rem;
+    width: 2rem;
+    margin: auto;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+.listContainer {
+    width:100%;
+    margin: auto;
+    background-color: #e7e8e9;
+    position: absolute;
+    z-index: 99;
+    border-radius: 0rem 0rem 1rem 1rem
+}
+
+.main {
+    position: relative;
+}
+.finalSelected{
+    margin-left: 0.3rem;
+    background-color: #0fccce1c;
+    padding: 0.2rem 0.4rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    color: #0FCCCE;
+    font-weight: 300;
+    margin-left: 0.5rem;
+}
+.finalSelected-container{
+    display: flex;
+    flex-direction: row;
+
+}
+
+

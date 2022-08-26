@@ -130,6 +130,21 @@ button.mat-stepper-previous.step_btn.ng-star-inserted {
   cursor: pointer;
   color:#0fccce;
 }
+.login {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 1.4rem;
+  color: #0fccce;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.login span img {
+  width: 2rem;
+}
+
 
 @media only screen and (max-width: 600px){
   .formsContainer{

@@ -23,8 +23,23 @@ mat-icon.mat-icon.notranslate.seachIcon.seachIcon.material-icons.mat-icon-no-col
     flex: 1;
     outline: none;
     font-size: 18px;
-    border: 2px solid #99969699;
+    
+    border: 1px solid #99969699;
 
+}
+
+.showError {
+  padding: 0.3rem 0.3rem 1rem 0.3rem;
+  background-color: #e0212140;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+span.errorMsg {
+  color: #ff0000bf;
+  font-size: 16px;
+}
+.inputContainer {
+  width: -webkit-fill-available;
+  
 }
 // .iti--allow-dropdown input,
 // .iti--allow-dropdown input[type=text],
@@ -65,6 +80,10 @@ mat-icon.mat-icon.notranslate.menu-icons.material-icons.mat-icon-no-color {
   font-size: 4rem;
   margin-right: 2rem;
   color: #0fccce;
+}
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #0fccce!important;
+  
 }
 // .mat-dialog-container{
 //   position: absolute !important;

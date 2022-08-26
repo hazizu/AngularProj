@@ -1,0 +1,24 @@
+.checkbox-container {
+  padding-top: 0.2rem;
+  font-size: 1.3rem;
+  line-height: 1.1;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+  font-weight: 300 !important;
+  
+}
+.checkbox-container:hover{
+    background-color: rgb(231, 231, 231)
+}
+// input .resteCheck:checked{
+//   background-color:#0fccce
+// }
+input[type="checkbox"].resteCheck:checked{
+    appearance: none;
+    background-color:#0fccce !important;
+}
+
+
+
+

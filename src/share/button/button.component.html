@@ -2,5 +2,13 @@
 [ngStyle]="styles" 
 type="submit" 
 (click)="getButtonValue()" 
->{{labelButton}}</button>
+>
+<ng-template #text>
+{{labelButton}}
+</ng-template>
+<div class=loading-container>
+<ng-lottie width="170px" height="120px" [options]="options" *ngIf="loading; else text"></ng-lottie>
+</div>
+</button>
+
 

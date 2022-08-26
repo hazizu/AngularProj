@@ -1,5 +1,9 @@
 
 <div class="formsContainer">
+    <div class="login" (click)="goToConnect()">
+        <span>Connectez-vous</span>
+        <span><img src="./../../../assets/svg/login.svg"></span>
+    </div>
     
     <div class="login-form">
         <div class="login-title">
@@ -7,25 +11,26 @@
         </div>
         <form [formGroup]="registerForm" (ngSubmit)="register(registerForm)" class="log">
                 <div class="form-group">
-                <app-text-input label="Nom" controlName="lastName"></app-text-input>
-                <app-input-error errorLabel="Ce champ est requis" [showAlert]="registerForm.get('lastName')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+
+                <app-text-input label="Nom utilisateur" controlName="username"></app-text-input>
+                <app-input-error errorLabel="Ce champ est requis" [showAlert]="registerForm.get('username')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
                 </div>
             
         
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <app-text-input label="Prénom" controlName="firstName"></app-text-input>
                     <app-input-error errorLabel="Ce champ est requis" [showAlert]="registerForm.get('firstName')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
-                </div>
+                </div> -->
         
                 <!-- <div class="form-group">
                     <app-select-input label="Sexe" homme="Homme" femme="Femme"></app-select-input>
                     <app-input-error errorLabel="Ce champ est requis" [showAlert]="registerForm.get('sexe')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
                 </div> -->
         
-                <div class="form-group-tel">
+                <!-- <div class="form-group-tel">
                     <app-tel-input controlName="telephone" label="Téléphone"></app-tel-input> 
                     <app-input-error errorLabel="Ce champ est requis" [showAlert]="registerForm.get('telephone')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
-                </div>
+                </div> -->
                 
                 <!-- <button class="step_btn" type="button" mat-button matStepperNext>suivant</button> -->
             <!-- </mat-step> -->
@@ -42,14 +47,14 @@
                 <app-input-error errorLabel="Veillez-saisir un email valid" [showAlert]="registerForm.get('password')?.invalid && alert" icon="./../../../assets/warning_amber_black_24dp.svg"></app-input-error>
                 </div>
         
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <app-password-input label="Confirmez le mot de passe" controlName="confPassWord"></app-password-input>
                     <app-input-error errorLabel="Veillez-saisir un email valid" [showAlert]="registerForm.get('confPassWord')?.invalid && alert" icon="./../../../assets/warning_amber_black_24dp.svg"></app-input-error>
-                </div>
+                </div> -->
         
         
                 <div class="btn">
-                    <app-button labelButton="ENREGISTRER">
+                    <app-button labelButton="ENREGISTRER" [loading]="load">
                     </app-button>
                 </div>
                 <div class="connect-link">

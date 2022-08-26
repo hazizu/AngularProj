@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AnimationOptions } from 'ngx-lottie';
 
 @Component({
   selector: 'app-button',
@@ -9,6 +10,11 @@ export class ButtonComponent implements OnInit {
   @Input() labelButton?:string
   @Output() clicked:EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() styles:any = {}
+  @Input() loading :boolean =  false
+
+  options: AnimationOptions = {
+    path: './../../assets/lotties/buttonLoding.json'
+  };
 
   constructor() { }
 
@@ -17,5 +23,5 @@ export class ButtonComponent implements OnInit {
   getButtonValue(){
     this.clicked.emit()
   }
-
+  
 }

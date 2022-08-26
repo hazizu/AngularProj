@@ -13,10 +13,12 @@ import { ControlContainer, FormGroupDirective } from '@angular/forms';
   ]
 })
 export class SelectInputComponent implements OnInit {
-  @Input() homme: string=""
-  @Input() femme:string=""
+  @Input() placeholder?: string
   @Input() label:string=""
-  constructor() { }
+  @Input()  options:any[] = [];
+  @Input() controlName!:string
+  constructor() {}
+
 
   ngOnInit(): void {
   }

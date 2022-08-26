@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProvideRegisterComponent } from 'src/auth/auth/provide-register/provide-register.component';
 import { ServicesPageComponent } from 'src/share/services-page/services-page.component';
 import { SelectClothesFormComponent } from 'src/share/select-clothes-form/select-clothes-form.component';
+import { ProfileComponent } from 'src/share/profile/profile.component';
 
 
 
@@ -26,9 +27,8 @@ const routes: Routes = [
             },
             {
                 path:'our-services', component:ServicesPageComponent,pathMatch:"full"
-            }
-           
-                 
+            },
+                            
         ]      
     },
    

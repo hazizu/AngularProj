@@ -1,11 +1,10 @@
 <div class="main">
     <div class="resumeTitle">
-        
         <span>Votre panier à linge !</span>
         <img src="./../../assets/svg/panierLingeContent.png">
     </div>
   <div class="allCommande">
-    <div class="elements-block" *ngFor="let el of data; let i = index">
+    <div class="elements-block" *ngFor="let el of commandeData; let i = index">
         <div class="element">
             <div class="el1">
                 <span class="libelle">{{el.libelle}}</span>
@@ -13,11 +12,11 @@
             </div>
             <div class="el2">
             <span class="prix">{{el.price}} Fcfa</span>
-            <span class="updateLib" (click)="updateElement(el,i)" *ngIf="!open">modifier</span>
-            <span class="updateLib"(click)="fermer(i)" *ngIf="selectedItem === i">fermer</span>
+            <span class="updateLib" (click)="updateElement(el,i)" *ngIf="!open2">modifier</span>
+            <!-- <span class="updateLib"(click)="fermer(i)" *ngIf="open">fermer</span> -->
         </div>
         </div>
-        <div  [ngClass]="{updateContainer:true ,  slidIn:open, slidOut:!open}" *ngIf="selectedItem === i">
+        <!-- <div  [ngClass]="{updateContainer:true ,  slidIn:open, slidOut:!open}" *ngIf="selectedItem === i">
             <div class="increment">
                 <div  class="decre"(click)="decreJean(el.quantite)">-</div>
                 <div class="value"> {{elementQuantite}}</div>
@@ -25,17 +24,49 @@
               </div>
               <div class="buttonConfirmUpdata">
               <app-button labelButton="confirmer" [styles]="{padding:'0.4rem'}"(clicked)="update()"></app-button>
+              <app-button labelButton="fermer" [styles]="{padding:'0.4rem',backgroundColor:'white', border:'1px solid #0fccce', color:'#0fccce'}"(clicked)="fermer()"></app-button>
+            </div>
+        </div> -->
+ 
+        <div [ngClass]="{midifDialog:true, slidIn2:open2, slidOut2:!open2}" >
+            <div class="close" (click)="fermer()">Fermer</div>
+            <div class="imageModif">
+                <img [src]="imageUrl">
+                <div class="modifLibelle">{{elementLib}}</div>
+            </div>
+        
+            <div class="increment">
+                <div  class="decre"(click)="decreJean(el.quantite)">-</div>
+                <div class="value"> {{elementQuantite}}</div>
+                <div class="incre"(click)="increJean(el.quantite)">+</div>
+            </div>
+            <div class="btn-modif">
+            <app-button labelButton="modifier" [styles]="{padding:'0.4rem'}"(clicked)="update()"></app-button>
             </div>
         </div>
         
     </div>
 </div>
-
+<div class="payecontainer">
     <div class="globalePrice">
-        <span class="globalePriceLib">A payé:</span> 
-        <span class="globalePriceVal">{{calculeGlobale()}} Fcfa</span>
+        <div class="globalePriceLib">A payé:</div> 
+        <div class="globalePriceVal">{{calculeGlobale()}} Fcfa</div>
     </div>
-    <div class="valideCommande">
-        <app-button labelButton="Valider" (clicked)="valideCommande()"></app-button>
+    <div class="valide">
+        valider
     </div>
+</div>
+<!-- <div [ngClass]="{midifDialog:true, slidIn2:open2, slidOut2:!open2}" (click)="fermer()">
+    <div class="imageModif">
+        <img src="./../../assets/svg/panierLinge.png">
+        <div class="modifLibelle">{{el.li}}</div>
+    </div>
+
+    <div class="increment">
+        <div  class="decre"(click)="decreJean(el.quantite)">-</div>
+        <div class="value"> {{elementQuantite}}</div>
+        <div class="incre"(click)="increJean(el.quantite)">+</div>
+    </div>
+    <app-button labelButton="modifier" [styles]="{padding:'0.4rem'}"(clicked)="update()"></app-button>
+</div> -->
 </div>

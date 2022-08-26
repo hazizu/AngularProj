@@ -2,6 +2,11 @@ import { Page } from './../../../node_modules/ngx-pagination/dist/pagination-con
 import { INFERRED_TYPE } from '@angular/compiler/src/output/output_ast';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { reducers } from 'src/_contants/store.reducers';
+import { Observable } from 'rxjs';
+import { AppStore } from 'src/_enumes/stores.enum';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -16,13 +21,16 @@ export class ServiceProviderComponent implements OnInit {
   searchValue:string=""
   providerListLenght?:number
   page:number = 1
+  profileState$?:Observable<any>
+  profileState:any
 
 
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private store:Store<typeof reducers>) { }
 
   
   providerList:any[] = [
+
     {
       imageUrl:"./../../assets/portrait-d-une-femme-africaine-pour-laver-le-linge-a-la-main-dans-des-seaux-accra-ghana-c5hg23.jpg",
       name:"AKISSI"
@@ -92,11 +100,6 @@ export class ServiceProviderComponent implements OnInit {
   getProvider(providerName:string, index:number){
       console.log(providerName, index);
       this.router.navigateByUrl('home/provider-details/' + providerName)
-      let nouvelle = this.providerList.splice(index,1)
-      console.log("element suprimer", nouvelle)
-      console.log('la noubelle liste', this.providerList) 
-     
-
   }
 
 }

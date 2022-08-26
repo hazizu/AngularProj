@@ -12,8 +12,15 @@ import { environment } from '../environments/environment';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { LottieModule } from 'ngx-lottie';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {SocialLoginModule,SocialAuthServiceConfig} from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';
+import { TokenInterceptor } from 'src/_utils/interceptor.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-export function playerFactory(): any {  
+
+
+export function playerFactory(): any {
   return import('lottie-web');
 }
 
@@ -23,7 +30,7 @@ export function playerFactory(): any {
 @NgModule({
   declarations: [
     AppComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -34,8 +41,11 @@ export function playerFactory(): any {
     BrowserAnimationsModule,
     MatDialogModule,
     NgxPaginationModule,
+    MatProgressSpinnerModule,
+    SocialLoginModule,
+    HttpClientModule,
     LottieModule.forRoot({player:playerFactory}),
-    
+
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
@@ -43,7 +53,25 @@ export function playerFactory(): any {
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('615053041632-4emc7c2crotttfqallu0hl1kne76dr6m.apps.googleusercontent.com'),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:TokenInterceptor,
+      multi: true 
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,9 +1,9 @@
 <div class="form-group">
     <span class="label">{{label}}</span>
-        <select>
-            <option value="">Sexe</option>
-            <option value="homme">{{homme}}</option>
-            <option value="femme">{{femme}}</option>
+        <select [formControlName]="controlName">
+            <option value="" disabled selected >{{placeholder}}</option>
+            <option value="option" *ngFor="let option of options" [value]="option.id">{{option.libelle}}</option>
     </select>
 </div>
+
 

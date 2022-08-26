@@ -6,8 +6,8 @@ import { map, Observable } from 'rxjs';
 import { reducers } from 'src/_contants/store.reducers';
 import { AppStore } from 'src/_enumes/stores.enum';
 import { ConfirmeComponent } from 'src/share/confirme/confirme.component';
+import { setCommandeData, setProfilState, } from 'src/_store/commandeData/commandeData.action';
 import { ResumeCommandeMobileComponent } from 'src/share/resume-commande-mobile/resume-commande-mobile.component';
-import { setCommandeData } from 'src/_store/commandeData/commandeData.action';
 
 export interface DialogData{
   dialogMessage:string;
@@ -22,6 +22,7 @@ export interface DialogData{
 })
 export class HomeComponent implements OnInit {
   open?:boolean
+  openProfile:boolean = false;
   list$?:Observable<any>
   list:any
   hideMobileIcon:boolean = true
@@ -29,8 +30,7 @@ export class HomeComponent implements OnInit {
   IconClear:boolean=false;
   commandeData$?:Observable<any>
   commandeData:any
-
-
+  openResume:boolean=false
 
   constructor(
     private router: Router,
@@ -39,22 +39,11 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.list$ = this.store.select(AppStore.providerList).pipe(
-      map(
-        (state:any)=>{
-          return state.providerList
-        }
-      )
-    )
-    this.list$.subscribe((res)=>{
-      this.list = res
-      console.log("providers providers",this.list)
-    })
-
+ 
     this.commandeData$ = this.store.select(AppStore.commandeData).pipe(
       map(
         (state:any)=>{
-          return state.commandeData;
+          return state.openProfile;
         }
       )
     )
@@ -70,35 +59,38 @@ export class HomeComponent implements OnInit {
       this.router.navigateByUrl('provider-register')
   }
   drop(){
-    this.open = !this.open;
-    this.IconShow = false;
-    this.IconClear = true
+    this.clear();
   }
   dropClear(){
-    this.open = !this.open;
-    this.IconClear = false;
-    this.IconShow = true;
+    this.clear();
   }
   getServices(){
-    this.open = !this.open;
-    this.IconClear = false;
-    this.IconShow = true;
+   this.clear();
     this.router.navigateByUrl('home/our-services')
     
   }
   getHome(){
     this.router.navigateByUrl('home/accueil')
-    this.open = !this.open;
-    this.IconClear = false;
-    this.IconShow = true;
+   this.clear()
   }
+  getProfile(){
+     this.router.navigateByUrl('profile')
+    this.clear()
+    this.openProfile = true
+    this.store.dispatch(setProfilState({openProfile:this.openProfile}))
+  }
+  // clearProfile(){
+  //   this.router.navigateByUrl('home/accueil')
+  //   // this.openProfile = false
+  //   // this.store.dispatch(setProfilState({openProfile:this.openProfile}))
+  // }
   getContactForm(){
     this.router.navigateByUrl('contactez-nous')
-    this.open = !this.open;
-    this.IconClear = false;
-    this.IconShow = true;
+    this.clear()
   }
   deconnexion(){
+    
+  this.clear()
     const dialogref = this.dialog.open(ConfirmeComponent,{
       width:"35rem",
       data:{
@@ -111,21 +103,29 @@ export class HomeComponent implements OnInit {
        console.log('oui',result);
        this.router.navigateByUrl("");
      }else{
-      this.open = !this.open;
-      this.IconClear = false;
-      this.IconShow = true;
+    
 
      }
    })
   }
   getResumeMobile(){
+    
+
     this.dialog.open(ResumeCommandeMobileComponent,{
-      width:"100vw",
-      data:this.commandeData,
+      panelClass: "matdialogStyle",
+      minWidth: '100%',
+      height:'70vh',
+      // data:this.commandeData,
       position:{
         bottom:'0px' 
       }
     })
     this.store.dispatch(setCommandeData({commandeData:[...this.commandeData]}))
+  }
+
+  clear(){
+    this.open = !this.open;
+    this.IconClear = false;
+    this.IconShow = true;
   }
 }

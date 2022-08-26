@@ -3,7 +3,6 @@
         <div class="logo">
             <img src="./../../assets/logo/fanico.png">
         </div>
-
         <div class="menu">
             <span (click)="getServices()">nos services</span>
             <span>offres-actu</span>
@@ -12,7 +11,7 @@
             <span (click)="getProvideRegister()">Prestataire?</span>
             <span class="logout" (click)="deconnexion()">DÉCONNEXION</span>
         </div>
-        <div class="notification" (click)="getResumeMobile()" *ngIf="commandeData.length">
+        <div class="notification" (click)="getResumeMobile()" *ngIf="commandeData?.length">
             <img src ='./../../assets/svg/panierLinge.png '>
             <span class="total">{{commandeData.length}}</span>
           </div>
@@ -23,21 +22,28 @@
         </div>
         
         <main [ngClass]="{mainHeader:true, slidIn:open, slidOut:!open}">
-            <div class="menu-icon-clear" *ngIf="IconClear" (click)="dropClear()">
+            <div class="menu-icon-clear"  (click)="dropClear()">
                 <!-- <img src="./../../assets/edit_black_24dp.svg"> -->
                 <mat-icon class="mobile-clear">clear</mat-icon>
             </div>
         <div class="text">
-            <app-menu-mobile imgUrl="./../../assets/svg/services.svg" text="nos services" (clicked)="getServices()"></app-menu-mobile>
-            <app-menu-mobile imgUrl="./../../assets/svg/offre-actu.svg" text="offres-actu"></app-menu-mobile>
+            <app-menu-mobile imgUrl="./../../assets/svg/profile.svg" text="Profile" (clicked)="getProfile()"></app-menu-mobile>
+            <!-- <app-menu-mobile imgUrl="./../../assets/svg/services.svg" text="nos services" (clicked)="getServices()"></app-menu-mobile> -->
+            <!-- <app-menu-mobile imgUrl="./../../assets/svg/offre-actu.svg" text="offres-actu"></app-menu-mobile> -->
             <app-menu-mobile imgUrl="./../../assets/svg/contact-us.svg" text="Contactez-nous" (clicked)="getContactForm()"></app-menu-mobile>
             <app-menu-mobile imgUrl="./../../assets/svg/home.svg" text="Home" (clicked)="getHome()"></app-menu-mobile>
             <app-menu-mobile imgUrl="./../../assets/svg/perstataire.svg" text="Prestataire?" (clicked)="getProvideRegister()"></app-menu-mobile>
             <app-menu-mobile imgUrl="./../../assets/svg/logout.svg" text="DÉCONNEXION" (clicked)="deconnexion()"></app-menu-mobile>
         </div>
-
     </main>
     </div>
+    
+    
 
 <router-outlet></router-outlet>
 </div>
+<!-- <div [ngClass]="{profile:true, slidInProfile:openProfile, slidOutProfile:!openProfile}">
+    <app-profile (clearClick)="clearProfile()" [profileData]="openProfile"></app-profile>
+</div> -->
+
+

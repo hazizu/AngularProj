@@ -1,0 +1,48 @@
+<div class="main">
+    <div class="input-container">
+        <div class="labelle">{{libelle}}</div>
+
+        <div class="input-div" (click)="showList()">
+
+            <ng-container *ngIf="!selectedList.length">
+                <span class="placeholder">votre prestations</span>
+                <span> <mat-icon>expand_more</mat-icon></span>
+            </ng-container>
+
+
+           <div *ngIf="selectedList.length" class="finalSelected-container">
+            <div *ngFor="let selectedElem of selectedList" >
+                <span class="finalSelected">{{selectedElem.libelle}}</span>
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+
+
+        <div class="listContainer" *ngIf="show">
+            <!-- <div class="selected-list">
+                <ng-container *ngFor="let selectedElem of selectedList">
+
+                    <span>{{selectedElem.libelle}}</span>
+                </ng-container>
+            </div> -->
+
+            <div class="all-list" *ngFor="let list of lists; let i = index">
+                <app-checkbox [data]="list" (isCheckedData)="getChecked($event,i)"></app-checkbox>
+            </div>
+            <div class="btn" (click)="closeListContainer()">OK</div>
+
+        </div>
+</div>
+
+
+
+
+
+<!-- <ng-container *ngIf="!show">
+    <div *ngFor="let finalSelected of finalSelecteds">
+        <span class="finalSelected-container">{{finalSelected}}<span>
+    </div>
+</ng-container> -->

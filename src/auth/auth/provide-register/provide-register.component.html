@@ -1,14 +1,29 @@
 <div class="main">
-    <div class="returHome" (click)="returHome()">Retournez à la page d'accueil</div>
+    <div class="login" (click)="getLogin()">
+        <span>Connectez-vous</span>
+        <span><img src="./../../../assets/svg/login.svg"></span>
+    </div>
+
     <div class="title">
         <span class="info"> Vous-êtes prestataire? Inscrivez-vous ici</span>
-        <img src='./../../../assets/edit_black_24dp.svg'>
+        <img src='./../../../assets/edit_black_24dp.svg'> 
     </div>
     <form class="form-container" [formGroup]="provideForm" (ngSubmit)="provideRegiste(provideForm)">
 
+        
         <div class="formGroupInput">
 
         <div class="part1">
+
+            <div class="image-container">
+
+                <label class="inputTag" [style.backgroundImage]="'url('+ imageBase64 +')'">
+                     <ng-container *ngIf="photo">Photo</ng-container>
+                    <input id="inputTag" type="file" style="display:none" accept=".png, .jpg, .jpeg"(change)="getFile($event)"/>
+                  </label>
+            </div>
+
+
       
         <div class="form-group">
             <app-text-input label="Nom" controlName="lastName"></app-text-input>
@@ -20,23 +35,42 @@
             <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('firstName')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
         </div>
 
+        <div class="form-group">
+                    <app-select-input [options]="sexe" label="Sexe" controlName="sexe" placeholder="Sexe"></app-select-input>
+                    <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('sexe')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+        </div>
+
         <div class="form-group-tel">
             <app-tel-input controlName="telephone" label="Téléphone"></app-tel-input> 
             <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('telephone')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
         </div>
 
         <div class="form-group">
-            <app-email-input label="Email (pas obligatoire)" controlName="email"></app-email-input>
+            <app-email-input label="Email" controlName="email"></app-email-input>
             <app-input-error [showAlert]="provideForm.get('email')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg" errorLabel="veuillez entrer un email valid"></app-input-error>
         </div>
     </div>
 
     <div class="part2">
 
-        <div class="form-group">
+        <!-- <div class="form-group">
             <app-text-input label="Votre prestation" controlName="TypeProvide"></app-text-input>
             <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('TypeProvide')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
-        </div>
+        </div> -->
+        <!-- <div class="form-group">
+            <app-select-input [options]="prestations" label="Votre prestation"></app-select-input>
+            <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('sexe')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+       </div> -->
+       
+
+       <app-select-checkbox libelle="votre prestations" [lists]="prestations" (getcheked)="getCheckedPrestation($event)"></app-select-checkbox>
+       <!-- <app-select-checkbox libelle="votre localité" [lists]="localite"></app-select-checkbox> -->
+       <div class="form-group">
+        <app-select-input [options]="localite" label="commune" placeholder="Commune" controlName="commune"></app-select-input>
+        <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('commune')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+       </div>
+
+       
 
         <div class="form-group">
             <app-password-input label="Mot de passe" controlName="password"></app-password-input>
@@ -45,15 +79,15 @@
             </app-input-error>
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
             <app-password-input label="Confirmer le mot de passe" controlName="confirmPassWord"></app-password-input>
             <app-input-error [showAlert]="provideForm.get('confirmPassWord')?.invalid && alert"  icon="./../../../assets/report_problem_black_24dp.svg" errorLabel="Mot de passe incorrect">
             </app-input-error>
-        </div>
+        </div> -->
     </div>
 </div>
 <div class="button">
-        <app-button labelButton="ENREGISTRER"></app-button>
+        <app-button labelButton="ENREGISTRER" [loading]="loading"></app-button>
 </div>
     </form>
 </div>

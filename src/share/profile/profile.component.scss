@@ -1,0 +1,28 @@
+.profile-image img {
+    width: 9rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: row;
+    border-radius: 50%;
+}
+    .profile-image {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    span.title {
+        font-size: 1.2rem;
+        color: #0fccce;
+    }
+    span.value {
+        font-size: 1rem;
+        margin-top: 0.5rem;
+    }
+    .groupe {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+    .information{
+        margin-left: 3rem;
+    }

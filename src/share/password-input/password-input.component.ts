@@ -24,6 +24,9 @@ export class PasswordInputComponent implements OnInit {
   eyeOf:boolean=true;
   eyVisually:boolean=false;
 
+  @Input() showError?:boolean = false
+  @Input() MsgError:string="" 
+
 
   constructor() {
     this.controlName = ""

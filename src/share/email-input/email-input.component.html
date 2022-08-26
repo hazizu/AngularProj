@@ -1,7 +1,13 @@
 <div class="form-group">
     <span class="label">{{label}}</span>
+
+<div [ngClass]="{inputContainer:true, showError:showError}">
     <input type='email' [formControlName]="controlName" placeholder="{{label}}">
+    <span class="errorMsg" *ngIf="showError">{{MsgError}}</span>
+
 </div>
+</div>
+
 
 
 

@@ -16,6 +16,8 @@ export class EmailInputComponent implements OnInit {
 
   @Input() label?: string
   @Input() controlName:string;
+  @Input() showError?:boolean = false
+  @Input() MsgError:string="" 
 
   constructor() { 
     this.controlName="";

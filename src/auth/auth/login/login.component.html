@@ -8,25 +8,37 @@
   <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)" class="log">
   <div class="login-form">
     <div class="form-group">
-        <app-email-input label="Email" controlName="email"></app-email-input>
-        <app-input-error [showAlert]="loginForm.get('email')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg" errorLabel="veuillez entrer un email valid"></app-input-error>
+        <app-email-input label="Email" controlName="username" [showError]="loginForm.get('username')?.invalid && alert" MsgError="ce champ est requis"></app-email-input>
+
+        <!-- <app-input-error [showAlert]="loginForm.get('email')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg" errorLabel="veuillez entrer un email valid"></app-input-error> -->
+
     </div>
     <div class="form-group">
-        <app-password-input label="Mot de passe" controlName="password"></app-password-input>
-        <app-input-error [showAlert]="loginForm.get('password')?.invalid && alert"  icon="./../../../assets/report_problem_black_24dp.svg" errorLabel="Mot de passe incorrect">
-        </app-input-error>
+        <app-password-input label="Mot de passe" controlName="password" [showError]="loginForm.get('password')?.invalid && alert" MsgError="Mot de passe incorrect"></app-password-input>
+        <!-- <app-input-error [showAlert]="loginForm.get('password')?.invalid && alert"  icon="./../../../assets/report_problem_black_24dp.svg" errorLabel="Mot de passe incorrect"> -->
+        <!-- </app-input-error> -->
          
+    </div>
+    <div class="badRequestMsg" *ngIf="badRequestMsg">
+
+      email ou mot de passe incorrect
     </div>
     <div class="login-options">
         <a href="#" class="resterConnecter">Mot de passe oublié?</a>
     </div>
+
+    
+    <app-input-error [showAlert]="alertLoginError"  icon="./../../../assets/report_problem_black_24dp.svg" errorLabel="Problème de connexion,veillez réessayer"> 
+    </app-input-error>
+
     <div class="btn">
-        <app-button labelButton="CONNEXION" (clicked)="connect()">
+        <app-button labelButton="CONNEXION" [loading]="load" (clicked)="connect()">
         </app-button>
     </div>
+   
     <div class="registerLink">
         <span>Vous n'avez pas de compte ?</span>
-        <a routerLink='register'>Créer un compte</a>
+        <a routerLink='home-auth'>Créer un compte</a>
     </div>
 
   </div>

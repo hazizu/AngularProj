@@ -3,8 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import axios, { AxiosRequestConfig } from 'axios';
 import { reducers } from 'src/_contants/store.reducers';
+import { Login } from 'src/_models/register';
 import { setProviderList } from 'src/_store/providersList/providerList.action';
+import { setUserProfile } from 'src/_store/searchUser/searchUser.action';
+import { UtilService } from 'src/_utils/util.service';
+import {environment} from './../../../environments/environment'
+
 
 @Component({
   selector: 'app-login',
@@ -14,58 +20,63 @@ import { setProviderList } from 'src/_store/providersList/providerList.action';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   alert:boolean=false;
+  load:boolean = false;
+  alertLoginError:boolean = false;
+  badRequestMsg:boolean = false;
+ 
 
-    
-  providerList:any[] = [
-    {
-      imageUrl:"./../../assets/portrait-d-une-femme-africaine-pour-laver-le-linge-a-la-main-dans-des-seaux-accra-ghana-c5hg23.jpg",
-      name:"AKISSI"
-    },
-    {
-      imageUrl:"./../../assets/portrait-d-une-femme-africaine-pour-laver-le-linge-a-la-main-dans-des-seaux-accra-ghana-c5hg23.jpg",
-      name:"KONAN Beatrice"
-    },
-    {
-      imageUrl:"./../../assets/portrait-d-une-femme-africaine-pour-laver-le-linge-a-la-main-dans-des-seaux-accra-ghana-c5hg23.jpg",
-      name:"MALIMOUNA Bobo"
-    },
-    {
-      imageUrl:"./../../assets/portrait-d-une-femme-africaine-pour-laver-le-linge-a-la-main-dans-des-seaux-accra-ghana-c5hg23.jpg",
-      name:"KOUADIO FELI"
-    },
-    {
-      imageUrl:"./../../assets/portrait-d-une-femme-africaine-pour-laver-le-linge-a-la-main-dans-des-seaux-accra-ghana-c5hg23.jpg",
-      name:"KAKA Kaka"
-    },
-    {
-      imageUrl:"./../../assets/portrait-d-une-femme-africaine-pour-laver-le-linge-a-la-main-dans-des-seaux-accra-ghana-c5hg23.jpg",
-      name:"KONE NATACHA"
-    },
-    {
-      imageUrl:"./../../assets/portrait-d-une-femme-africaine-pour-laver-le-linge-a-la-main-dans-des-seaux-accra-ghana-c5hg23.jpg",
-      name:"BABE ALICE "
-    },
-  ]
-
-  constructor(public fb: FormBuilder, private router: Router, private store:Store<typeof reducers>) { 
+  constructor(public fb: FormBuilder,
+    private router: Router, 
+    private store:Store<typeof reducers>,
+    private utilService:UtilService) { 
     this.loginForm = this.fb.group({
-      'email':['', [Validators.required, Validators.email]],
+      'username':['', [Validators.required]],
       'password':['', [Validators.required, Validators.minLength(8)]]
     })
   }
 
   ngOnInit(): void {
+   
     
   }
   connect(){
   }
+ 
   login(login:FormGroup){
-    if(login.invalid){
-      this.alert=true;
+    if(login.valid){
+      this.load = true
+      const loginVal = login.value
+      const data = new Login(loginVal.username, loginVal.password)
+      this.utilService.postRequest("login-jwt",data).then(
+        (res:any)=>{
+          this.utilService.setStorage('token',res.data.access)
+
+          const getUser:AxiosRequestConfig = {
+            url:environment.apiUrl + 'user-dashboard/',
+            method: 'GET',
+            headers: {"Authorization":`JWT ${res.data.access}`}
+          }
+            axios(getUser).then((res)=>{
+              this.load = false
+              console.log("user data",res)
+              this.store.dispatch(setUserProfile({userProfile:res.data})) 
+              this.router.navigateByUrl('home/accueil')
+            },(err)=>{
+              this.load = false
+            })
+          console.log(res)
+        },(err)=>{
+          if(err.response.status==400){
+            this.badRequestMsg=true
+          }else if(err.code ="ERR_NETWORK"){
+            this.alertLoginError = true
+          }
+          this.load = false
+          console.log("erreur login",err)
+        }
+      )
     }else{
-      this.router.navigateByUrl('home/accueil');
-      this.store.dispatch(setProviderList({provider:this.providerList}))
+      this.alert = true
     }
   }
-
 }

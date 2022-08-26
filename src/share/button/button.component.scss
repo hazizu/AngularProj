@@ -7,9 +7,19 @@ button.btn{
     cursor: pointer;
     padding: 1rem;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
   }
   button:hover{
       background-color: #1db6b6;
       color:#FFFFFF ;
 
   }
+  .loading-container {
+    position: absolute;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}

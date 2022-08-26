@@ -9,6 +9,7 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputErrorComponent } from './input-error/input-error.component';
 import { ButtonComponent } from './button/button.component';
+
 import { MatIconModule } from '@angular/material/icon';
 import { SerchBarComponent } from './serch-bar/serch-bar.component';
 import { ServiceProviderComponent } from './service-provider/service-provider.component';
@@ -29,6 +30,13 @@ import { SucessAlertComponent } from './sucess-alert/sucess-alert.component';
 import { LottieModule } from 'ngx-lottie';
 import { ResumeCommandeMobileComponent } from './resume-commande-mobile/resume-commande-mobile.component';
 import { AlertComponent } from './alert/alert.component';
+import { WaitingLoadingComponent } from './waiting-loading/waiting-loading.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ProfileComponent } from './profile/profile.component';
+import { CheckboxComponent } from './checkbox/checkbox.component';
+import { SelectCheckboxComponent } from './select-checkbox/select-checkbox.component';
+import { MatSelectComponent } from './mat-select/mat-select.component';
+
 
 
 
@@ -40,7 +48,7 @@ import { AlertComponent } from './alert/alert.component';
   declarations: [
     EmailInputComponent,
     SelectInputComponent,
-    PasswordInputComponent, 
+    PasswordInputComponent,
     InputErrorComponent,
     ButtonComponent,
     TextInputComponent,
@@ -60,7 +68,12 @@ import { AlertComponent } from './alert/alert.component';
     ResumeCommandeComponent,
     SucessAlertComponent,
     ResumeCommandeMobileComponent,
-    AlertComponent
+    AlertComponent,
+    WaitingLoadingComponent,
+    ProfileComponent,
+    CheckboxComponent,
+    SelectCheckboxComponent,
+    MatSelectComponent
   ],
   imports: [
     CommonModule,
@@ -70,7 +83,8 @@ import { AlertComponent } from './alert/alert.component';
     Ng2SearchPipeModule,
     NgxIntlTelInputModule,
     NgxPaginationModule,
-    LottieModule 
+    LottieModule,
+    MatProgressSpinnerModule
 
   ],
   exports: [
@@ -92,7 +106,12 @@ import { AlertComponent } from './alert/alert.component';
     SelectClothesFormComponent,
     ResumeCommandeComponent,
     SucessAlertComponent,
-    AlertComponent
+    AlertComponent,
+    ResumeCommandeMobileComponent,
+    WaitingLoadingComponent,
+    ProfileComponent,
+    CheckboxComponent,
+    SelectCheckboxComponent
   ]
 })
 export class ShareModule { }
