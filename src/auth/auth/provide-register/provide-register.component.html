@@ -1,13 +1,14 @@
 <div class="main">
+    <img class="logo" src="./../../../assets/logo/fanico.png">
     <div class="login" (click)="getLogin()">
         <span>Connectez-vous</span>
         <span><img src="./../../../assets/svg/login.svg"></span>
     </div>
 
-    <div class="title">
+    <!-- <div class="title">
         <span class="info"> Vous-êtes prestataire? Inscrivez-vous ici</span>
         <img src='./../../../assets/edit_black_24dp.svg'> 
-    </div>
+    </div> -->
     <form class="form-container" [formGroup]="provideForm" (ngSubmit)="provideRegiste(provideForm)">
 
         
@@ -63,7 +64,12 @@
        </div> -->
        
 
-       <app-select-checkbox libelle="votre prestations" [lists]="prestations" (getcheked)="getCheckedPrestation($event)"></app-select-checkbox>
+       <!-- <app-select-checkbox libelle="votre prestations" [lists]="prestations" (getcheked)="getCheckedPrestation($event)"></app-select-checkbox> -->
+       <div class="form-group">
+        <app-select-input [options]="prestations" label="Prestation" controlName="prestation" placeholder="Prestation"></app-select-input>
+        <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('sexe')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+       </div>
+
        <!-- <app-select-checkbox libelle="votre localité" [lists]="localite"></app-select-checkbox> -->
        <div class="form-group">
         <app-select-input [options]="localite" label="commune" placeholder="Commune" controlName="commune"></app-select-input>

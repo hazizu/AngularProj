@@ -23,28 +23,17 @@ export class SelectClothesFormComponent implements OnInit {
   qte?:any
   q:any
   p:any
-  mutValue:number=0
-  mut1:number=0
-  mut2:number=0
-  mut3:number=0
+  unitChemise:number=0
+  unitPantalon:number=0
+  unitRobe:number=0
+  unitJean:number=0
   element:any
   openPanier:boolean = false
-  openPanierResume$?:Observable<any>
-  commandeData$?:Observable<any>
   commandeData:any
   
   resumeCommande:any[] = []
   
-  chemise ={
-    libelle:"chemise",
-    quantite:0,
-    prix:0
-  }
-  pantalon = {
-    libelle:"chemise",
-    quantite:0,
-    prix:0
-  }
+ 
 
   constructor(private fb: FormBuilder,private dialog:MatDialog, private store:Store<typeof reducers>) { 
    this.saleForm = this.fb.group({
@@ -53,152 +42,115 @@ export class SelectClothesFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  this.openPanierResume$ = this.store.select(AppStore.commandeData).pipe(
-    map(
-      (state: any)=>{
-        return state.loading
-      }
-    )
-  )
-  this.openPanierResume$.subscribe((res)=>{
-    this.openPanier = res
-  })
 
-
-  this.commandeData$ = this.store.select(AppStore.commandeData).pipe(
-    map(
-      (state:any)=>{
-        return state.commandeData;
-      }
-    )
-  )
-  this.commandeData$.subscribe((res)=>{
-    this.commandeData = res
-    console.log("commandeData select",this.commandeData)
-  })
-    
-
-    
    
   }
   return(){
     this.clicked.emit()
   }
-  // selected(element:any, index:number, event:any){
-  //   if(event.target.checked && index>=0){
-  //     element.quantite = 1
-  //     console.log('quantite',element.quantite)
-  //     console.log(element, index)
-  //   }else{
-  //     this.qte = 0
-  //     console.log('quantite',element.quantite )
-  //   }
-      
-  //   }
+ 
     
-  
-
-  calGlobalPriceChem(quantites:any) {
-    let globale =  100 * this.mutValue
+  calGlobalPriceChem() {
+    let globale =  100 * this.unitChemise
      return globale
   }
-  calGlobalPricePant(quantites:any){
-     let globale = 150 * this.mut1
+  calGlobalPricePant(){
+     let globale = 150 * this.unitPantalon
      return globale
   }
-  calGlobalPriceRobe(quantites:any){
-    let globale = 150 * this.mut2
+  calGlobalPriceRobe(){
+    let globale = 150 * this.unitRobe
     return globale
   }
-  calGlobalPriceJean(quantite:any){
-    let globale = 200 * this.mut3
+  calGlobalPriceJean(){
+    let globale = 200 * this.unitJean
     return globale
   }
   confirmChem(libelle:string, quantite:number){
     const obj :any  = {}
-    const price = this.calGlobalPriceChem(quantite)
+    const price = this.calGlobalPriceChem()
     obj.libelle = libelle
-    obj.quantite = this.mutValue
+    obj.quantite = this.unitChemise
     obj.price = price
     obj.id = 0
-    this.mutValue =0
+    this.unitChemise =0
       this.verifierCommande(obj, this.resumeCommande,libelle,quantite)
       
   }
   confirmRobe(libelle: string, quantite:number){
     const obj :any  = {}
-    const price = this.calGlobalPriceRobe(quantite)
+    const price = this.calGlobalPriceRobe()
     obj.libelle = libelle
-    obj.quantite = this.mut2
+    obj.quantite = this.unitRobe
     obj.price = price
     obj.id = 1
-    this.mut2 = 0
+    this.unitRobe = 0
 
       this.verifierCommande(obj,this.resumeCommande,libelle,quantite)
   }
 
   confirmPant(libelle: string, quantite:number){
     const obj :any  = {}
-    const price = this.calGlobalPricePant(quantite)
+    const price = this.calGlobalPricePant()
     obj.libelle = libelle
-    obj.quantite = this.mut1
+    obj.quantite = this.unitPantalon
     obj.price = price
     obj.id = 2
-    this.mut1=0
+    this.unitPantalon=0
       this.verifierCommande(obj,this.resumeCommande,libelle,quantite)
   }
   confirmJean(libelle: string, quantite:number){
     const obj :any  = {}
-    const price = this.calGlobalPriceJean(quantite)
+    const price = this.calGlobalPriceJean()
     obj.libelle = libelle
-    obj.quantite = this.mut3
+    obj.quantite = this.unitJean
     obj.price = price
     obj.id =3
-    this.mut3=0
+    this.unitJean=0
       this.verifierCommande(obj,this.resumeCommande,libelle,quantite)
     
   }
   decreChem() {
-    if(this.mutValue>0){
-      this.mutValue--
-      this.mutValue = this.mutValue
+    if(this.unitChemise>0){
+      this.unitChemise--
+      this.unitChemise = this.unitChemise
     }
   }
   increChem() {
-      this.mutValue++
-      this.mutValue = this.mutValue
+      this.unitChemise++
+      this.unitChemise = this.unitChemise
   }
   decrePant() {
-    if(this.mut1>0){
-      this.mut1--
-      this.mut1 = this.mut1
+    if(this.unitPantalon>0){
+      this.unitPantalon--
+      this.unitPantalon = this.unitPantalon
     }
 
   }
   increPant() {
-      this.mut1++
-      this.mut1 = this.mut1
+      this.unitPantalon++
+      this.unitPantalon = this.unitPantalon
   }
   decreRobe() {
-    if(this.mut2>0){
-      this.mut2--
-      this.mut2 = this.mut2
+    if(this.unitRobe>0){
+      this.unitRobe--
+      this.unitRobe = this.unitRobe
     }
 
   }
   increRobe() {
-      this.mut2++
-      this.mut2 = this.mut2
+      this.unitRobe++
+      this.unitRobe = this.unitRobe
   }
   decreJean(){
-    if(this.mut3>0){
-      this.mut3--
-      this.mut3 = this.mut3
+    if(this.unitJean>0){
+      this.unitJean--
+      this.unitJean = this.unitJean
     }
   }
   increJean(){
-    this.mut3++
-    this.mut3 = this.mut3
+    this.unitJean++
+    this.unitJean = this.unitJean
   }
   findElement(array: any,libelle: string){
    return array.some((el:any)=>{

@@ -1,9 +1,11 @@
 .login-title {
-    font-family: 'helvetica';
-    font-size: 2rem;
-    font-weight: 100;
-    padding: 3rem 0;
-    color: #0fccce;
+  font-family: "Roboto";
+  font-size: 2rem;
+  padding-bottom: 1rem;
+  font-weight: 100;
+  line-height: 1;
+  color: #0fccce;
+  margin-top: 5rem;
   }
 
   .login-form {
@@ -132,14 +134,14 @@ button.mat-stepper-previous.step_btn.ng-star-inserted {
 }
 .login {
   position: absolute;
-  top: 2rem;
-  right: 2rem;
-  font-size: 1.4rem;
-  color: #0fccce;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+    top: 9rem;
+    right: 2rem;
+    font-size: 1rem;
+    color: #0fccce;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 .login span img {
   width: 2rem;

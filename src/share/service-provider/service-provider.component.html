@@ -1,18 +1,30 @@
-
+<div class="container-se">
 <div class="seach-container">
   <input type="text" class="seachBar" placeholder="recherches...." [(ngModel)]="searchValue">
   <mat-icon class="seachIcon">search</mat-icon>
+</div>
 </div>
 
 
 <div class="demo">
   <div class="mainCard">
     <div class="mainCardContent" *ngFor="let provider of providerList | filter:searchValue | paginate:{itemsPerPage: 4, currentPage: page} ; let indexOfelement=index">
-      <div class="miniCard">
+      <div class="miniCard" (click)="getProvider(provider.name, indexOfelement)">
         <img [src]="provider.imageUrl"/>
+        <div class="info">
         <span class="name">{{provider.name}}</span>
-        <div class="button">
-          <app-button labelButton="contactez-moi" (clicked)="getProvider(provider.name, indexOfelement)"></app-button>
+        <div class="grade">
+          <mat-icon class="grade-icon">grade</mat-icon>
+          <mat-icon class="grade-icon">grade</mat-icon>
+          <mat-icon class="grade-icon">grade</mat-icon>
+          <mat-icon class="grade-iconNone">grade</mat-icon>
+          <mat-icon class="grade-iconNone">grade</mat-icon>
+        </div>
+        <div class="button" (click)="getProvider(provider.name, indexOfelement)">
+          <!-- <app-button labelButton="contactez-moi" (clicked)="getProvider(provider.name, indexOfelement)"></app-button> -->
+          Contactez
+        </div>
+
         </div>
       </div>
     </div>

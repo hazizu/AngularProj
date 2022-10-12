@@ -25,6 +25,7 @@ span.btn-client {
     color: #fff;
     font-size: 1.2rem;
     letter-spacing: 1px;
+    border-radius: 2rem;
 }
 span.btn-prestataire {
     text-align: center;
@@ -34,12 +35,13 @@ span.btn-prestataire {
     font-size: 1.2rem;
     margin-top: 2rem;
     letter-spacing: 1px;
+    border-radius: 2rem;
 }
 .login {
     position: absolute;
-    top: 2rem;
+    top: 9rem;
     right: 2rem;
-    font-size: 1.4rem;
+    font-size: 1rem;
     color: #0fccce;
     cursor: pointer;
     display: flex;
@@ -49,3 +51,8 @@ span.btn-prestataire {
 .login span img {
     width: 2rem;
 }
+
+@supports (-webkit-touch-callout: none) {                         
+    
+  }
+  

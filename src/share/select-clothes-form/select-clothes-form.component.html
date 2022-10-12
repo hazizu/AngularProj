@@ -1,127 +1,123 @@
 
-
-<!-- <div class="bar" *ngIf="resumeCommande?.length" >
-  <div class="notification" (click)="getResumeMobile()">
-  <img src ='./../../assets/svg/panierLinge.png '>
-  <span class="total">{{resumeCommande.length}}</span>
-</div>
-</div>   -->
 <div class="main-content">
-  <!-- <div class="return" (click)="return()">Voir les informtions du prestataire</div> -->
-<div class="container">
-    
+  <div class="container">
+
     <div class="chemise-container">
       <div class="sub1-container">
-        <div class="libelle">Chemise</div>
         <img src="./../../assets/commandeImg/chemise-a-manches-courtes (1).png">
-        
       </div>
-      <div class="price-container">
-        {{ calGlobalPriceChem(qte) }} <span>Fcfa</span>
-      </div> 
+      <div class="detail">
 
-      <div class="increment">
-        <div  class="decre"(click)="decreChem()">-</div>
-        <div class="value"> {{mutValue}}</div>
-        <div class="incre"(click)="increChem()">+</div>
+        <div class="detail-sub">
+          <div class="libelle">Chemise</div>
+          <div class="price-container">
+            {{ calGlobalPriceChem() }} <span>Fcfa</span>
+          </div>
+        </div>
+
+        <div class="increment">
+          <div class="decre" (click)="decreChem()">-</div>
+          <div class="value"> {{unitChemise}}</div>
+          <div class="incre" (click)="increChem()">+</div>
+        </div>
+
+        <div class="sub2-container"> 
+          <div class="confirm" (click)="confirmChem('chemise', unitChemise)">Ajouter au panier à linge</div>
+        </div>
+
       </div>
 
-      <div class="sub2-container">
-        <div class="confirm" (click)="confirmChem('chemise', mutValue)">Ajouter au panier à linge</div>
-      </div>
+      
     </div>
 
 
     <div class="chemise-container">
       <div class="sub1-container">
-        <div class="libelle">Pantalon</div>
         <img src="./../../assets/commandeImg/un-pantalon.png">
-        
       </div>
-      <div class="price-container">
-        {{ calGlobalPricePant(q) }} <span>Fcfa</span>
+      <div class="detail">
+
+        <div class="detail-sub">
+          <div class="libelle">Pantalon</div>
+          <div class="price-container">
+            {{ calGlobalPricePant() }} <span>Fcfa</span>
+          </div>
+        </div>
+
+        <div class="increment">
+          <div class="decre" (click)="decrePant()">-</div>
+          <div class="value"> {{unitPantalon}}</div>
+          <div class="incre" (click)="increPant()">+</div>
+        </div>
+
+        <div class="sub2-container"> 
+          <div class="confirm" (click)="confirmPant('pantalon', unitPantalon)">Ajouter au panier à linge</div>
+        </div>
+
       </div>
 
-      <div class="increment">
-        <div  class="decre"(click)="decrePant()">-</div>
-        <div class="value"> {{mut1}}</div>
-        <div class="incre"(click)="increPant()">+</div>
-      </div>
-
-      <div class="sub2-container">
-        <div class="confirm" (click)="confirmPant('pantalon', mut1)">Ajouter au panier à linge</div>
-      </div>
-     
+      
     </div>
+
 
     <div class="chemise-container">
       <div class="sub1-container">
-        <div class="libelle">Robe</div>
         <img src="./../../assets/commandeImg/robe.png">
-        
       </div>
-      <div class="price-container">
-        {{ calGlobalPriceRobe(p) }} <span>Fcfa</span>
+      <div class="detail">
+
+        <div class="detail-sub">
+          <div class="libelle">Robe</div>
+          <div class="price-container">
+            {{ calGlobalPriceRobe() }} <span>Fcfa</span>
+          </div>
+        </div>
+
+        <div class="increment">
+          <div class="decre" (click)="decreRobe()">-</div>
+          <div class="value"> {{unitRobe}}</div>
+          <div class="incre" (click)="increRobe()">+</div>
+        </div>
+
+        <div class="sub2-container"> 
+          <div class="confirm" (click)="confirmRobe('robe', unitRobe)">Ajouter au panier à linge</div>
+        </div>
+
       </div>
 
-      <div class="increment">
-        <div  class="decre"(click)="decreRobe()">-</div>
-        <div class="value"> {{mut2}}</div>
-        <div class="incre"(click)="increRobe()">+</div>
-      </div>
-
-      <div class="sub2-container">
-        <div class="confirm" (click)="confirmRobe('robe', mut2)">Ajouter au panier à linge</div>
-      </div>
-     
+      
     </div>
+
 
 
     <div class="chemise-container">
       <div class="sub1-container">
-        <div class="libelle">jean</div>
         <img src="./../../assets/commandeImg/jeans.png">
-        
       </div>
-      <div class="price-container">
-        {{ calGlobalPriceJean(qte) }} <span>Fcfa</span>
-      </div> 
+      <div class="detail">
 
-      <div class="increment">
-        <div  class="decre"(click)="decreJean()">-</div>
-        <div class="value"> {{mut3}}</div>
-        <div class="incre"(click)="increJean()">+</div>
+        <div class="detail-sub">
+          <div class="libelle">Jean</div>
+          <div class="price-container">
+            {{ calGlobalPriceJean() }} <span>Fcfa</span>
+          </div>
+        </div>
+
+        <div class="increment">
+          <div class="decre" (click)="decreJean()">-</div>
+          <div class="value"> {{unitJean}}</div>
+          <div class="incre" (click)="increJean()">+</div>
+        </div>
+
+        <div class="sub2-container"> 
+          <div class="confirm" (click)="confirmJean('jean', unitJean)">Ajouter au panier à linge</div>
+        </div>
+
       </div>
 
-      <div class="sub2-container">
-        <div class="confirm" (click)="confirmJean('jean', mut3)">Ajouter au panier à linge</div>
-      </div>
+      
     </div>
+   
+  </div>
 
-    
-
-    
-    <!--<ul class="responsive-table">
-      <li class="table-header">
-        <div class="col col-1">Libellé</div>
-        <div class="col col-3">Quantité</div>
-        <div class="col col-4">Prix prixUnitaire</div>
-        <div class="col col-4">Prix Globale</div>
-      </li>
-      <li class="table-row" *ngFor="let element of formPage ; let i = index">
-        <div class="col col-1" data-label="Job Id">{{element.libelle}} <input type="checkbox" name="selected" (change)="selected(element,i,$event)"></div> -->
-        <!-- <div class="col col-2" data-label="Customer Name"><input type="checkbox" name="selected"></div> -->
-        <!-- <div class="col col-3" data-label="Amount"><input type="number" name="quantite" [(ngModel)]="qte"></div>
-        <div class="col col-4" data-label="Payment Status">{{element.prixUnitaire}}</div>
-        <div class="col col-4" data-label="Payment Status">{{calGlobalPrice(element,i)}}</div>
-      </li>
-    </ul> -->
-</div>    
-
-<!-- <div class="resum-container">
-  <app-resume-commande [resumeArray]="resumeCommande"></app-resume-commande>
-</div> -->
-
-<!-- <app-resume-commande-mobile [resumeArray]="commandeData" [open]="openPanier"></app-resume-commande-mobile> -->
 </div>
-

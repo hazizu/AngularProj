@@ -34,6 +34,7 @@ export class ResumeCommandeMobileComponent implements OnInit {
   toUpdateElementIndex?:number
   interval$?:Observable<any>
   close?:boolean
+  load:boolean = false
 
 
   open2:boolean = false
@@ -46,6 +47,18 @@ export class ResumeCommandeMobileComponent implements OnInit {
     private store: Store<typeof reducers>) { }
 
   ngOnInit(): void {
+
+    this.commandeData$ = this.store.select(AppStore.commandeData).pipe(
+      map(
+        (state:any)=>{
+          return state?.commandeData;
+        }
+      )
+    )
+    this.commandeData$.subscribe((res)=>{
+      console.log('resume',res)
+      this.commandeData = res
+    })
 
     // this.interval$ = interval(1000).pipe(
     //   map((value) =>{
@@ -68,7 +81,7 @@ export class ResumeCommandeMobileComponent implements OnInit {
     this.openResume$.subscribe((res)=>{
       console.log('open state',res)
       this.open = res
-    })
+    }) 
 
     this.commandeData$ = this.store.select(AppStore.commandeData).pipe(
       map(
@@ -171,6 +184,9 @@ export class ResumeCommandeMobileComponent implements OnInit {
         this.imageUrl = './../../assets/commandeImg/chemise-a-manches-courtes.png';
         break;
     }
+  }
+  payer(){
+
   }
 
 }

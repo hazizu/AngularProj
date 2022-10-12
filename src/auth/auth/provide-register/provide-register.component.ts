@@ -32,11 +32,12 @@ export class ProvideRegisterComponent implements OnInit {
       this.provideForm = this.fb.group({
         "firstName":["", Validators.required],
         "lastName":["", Validators.required],
-        "sexe":["", Validators.required],
+        "sexe":[""],
         "telephone": ["",Validators.required],
         "email": ["", [Validators.email,Validators.required]],
+        "prestation":[""],
         "password":["",[Validators.required, Validators.minLength(6)]],
-        "commune":["",Validators.required]
+        "commune":[""]
         // "confirmPassWord":["",[Validators.required, Validators.minLength(6)]]
       })
    }
@@ -56,14 +57,18 @@ export class ProvideRegisterComponent implements OnInit {
     if(register.valid){
       this.loading = true
       console.log(register.value)
-      this.util.postRequest("register_one",
+      this.util.postRequest("register",
       new Provider(
         register.value.firstName,
         register.value.telephone.number,
-        register.value.commune,
-        register.value.sexe,
+        // register.value.commune,
+        1,
+        1,
+        
+        // register.value.sexe,
         register.value.password,
-        this.selectedProvide,
+        1,
+        // this.selectedProvide,
         this.imageBase64,
         register.value.email)).then(
           (res)=>{

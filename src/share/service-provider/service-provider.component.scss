@@ -5,30 +5,39 @@
 //     width: 14rem;
 //     margin: 1rem;
 // }
-.container{
-  margin-top: 10rem;
-}
+
 span.name {
-    font-size: 24px;
-    display: block;
-    padding: 1rem 0;
-    display:flex;
+  font-size: 1rem;
+  display: block;
+  padding: 1rem 0;
+  display: flex;
+  font-family: "Roboto";
+  color: #7e8082e8;
 }
 
 .seach-container {
-    display: flex;
+  display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 50%;
+    width: 100%;
     height: 3rem;
     padding-left: 1rem;
     padding-right: 1.5rem;
     border-radius: 7px;
     border: 2px solid #0fccce;
-    margin:auto;
-    margin-top:2rem;
 
+}
+.container-se {
+  position: fixed;
+  width: 100%;
+  padding-left: 1.9rem;
+  padding-right: 1.9rem;
+  z-index: 9;
+  background-color: #fff;
+  height: 6rem;
+  top: 4.8rem;
+  padding-top: 2rem;
 }
 .pagination-container {
   padding: -5rem 0rem;
@@ -92,8 +101,7 @@ input.seachBar {
 //     width: 90%
 // }
 .button{
-  width: 100%;
-  margin: auto;
+  color: #0fccce;
 }
 // span.name{
 //     font-size: 24px;
@@ -132,7 +140,7 @@ body {
   font-size: 36px; }
 
 .mainCard {
-  margin: 60px auto;
+  margin-top: 16rem;
   width: 100%;
   animation-name: mainCard;
   animation-duration: 1s;
@@ -143,6 +151,8 @@ body {
   flex-wrap: wrap;
   justify-content: flex-start
  }
+
+
 
 @keyframes mainCard {
   0% {
@@ -168,20 +178,59 @@ body {
     top: -50px; }
 
 .miniCard {
-  display: inline-block;
-  padding: 5px;
-  margin: 0 0px 20px 0;
-  background-color: white;
-  width: 21rem;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgb(0 0 0 / 20%);
-  animation-name: miniCard;
-  animation-duration: 1s;
-  animation-delay: 0.8s;
-  animation-fill-mode: both; }
+    /* display: inline-block; */
+    padding: 5px;
+    margin: 0 0px 20px 0;
+    background-color: white;
+    width: 21rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+    animation-name: miniCard;
+    animation-duration: 1s;
+    animation-delay: 0.8s;
+    animation-fill-mode: both;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
     .miniCard img{
-      width: 100%;
+      width: 8rem;
+      height: 8rem;
+      border-radius: 50%;
     }
+    .info {
+      width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    align-items: self-start;
+  }
+
+/* IPHONE STYLE*/
+  @media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+    .container-se {
+      position: fixed;
+      width: 100%;
+      padding-left: 1.9rem;
+      padding-right: 1.9rem;
+      z-index: 9;
+      background-color: #fff;
+      height: 6rem;
+      top: 8rem;
+      padding-top: 2rem;
+    }
+
+    .mainCard {
+      margin-top: 18.5rem;
+    }
+
+
+  }
 
 @keyframes miniCard {
   0% {

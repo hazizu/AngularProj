@@ -43,11 +43,11 @@ export class HomeComponent implements OnInit {
     this.commandeData$ = this.store.select(AppStore.commandeData).pipe(
       map(
         (state:any)=>{
-          return state.openProfile;
+          return state?.commandeData;
         }
       )
     )
-    this.commandeData$.subscribe((res)=>{
+    this.commandeData$.subscribe((res:any)=>{
       this.commandeData = res
       console.log("commandeData select",this.commandeData)
     })
@@ -114,7 +114,7 @@ export class HomeComponent implements OnInit {
     this.dialog.open(ResumeCommandeMobileComponent,{
       panelClass: "matdialogStyle",
       minWidth: '100%',
-      height:'70vh',
+      height:'100vh',
       // data:this.commandeData,
       position:{
         bottom:'0px' 

@@ -22,9 +22,12 @@ mat-icon.mat-icon.notranslate.seachIcon.seachIcon.material-icons.mat-icon-no-col
     flex-direction: row;
     flex: 1;
     outline: none;
-    font-size: 18px;
-    
-    border: 1px solid #99969699;
+    font-size: 1rem;
+    background-color: #f1f0f0;
+    border-radius: 1rem;
+    color: #000000;
+    font-weight: 100;
+    font-family: unset;
 
 }
 
@@ -40,6 +43,17 @@ span.errorMsg {
 .inputContainer {
   width: -webkit-fill-available;
   
+}
+.grade mat-icon .grade-icon{ 
+  color: #0fccce;
+ }
+
+img.logo {
+  width: 7rem;
+  position: absolute;
+  top: 4rem;
+  right: 35%;
+  left: 39%;
 }
 // .iti--allow-dropdown input,
 // .iti--allow-dropdown input[type=text],
@@ -96,7 +110,7 @@ mat-icon.mat-icon.notranslate.menu-icons.material-icons.mat-icon-no-color {
 .mat-dialog-container {
   display: block;
   padding: 24px;
-  border-radius: 4px;
+  border-radius: 2rem;
   box-sizing: border-box;
   overflow: auto;
   outline: 0;
@@ -104,4 +118,19 @@ mat-icon.mat-icon.notranslate.menu-icons.material-icons.mat-icon-no-color {
   height: auto;
   min-height: inherit;
   max-height: inherit;
+}
+
+span.total { 
+  position: absolute;
+  top: -7px;
+  right: 2rem;
+  padding: 0rem 0.6rem;
+  background-color: yellow;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  color: #000000;
+}
+.updateLib span mat-icon {
+  font-size: 1.3rem;
+  color: #0fccce;
 }

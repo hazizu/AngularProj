@@ -11,9 +11,9 @@
             <span (click)="getProvideRegister()">Prestataire?</span>
             <span class="logout" (click)="deconnexion()">DÉCONNEXION</span>
         </div>
-        <div class="notification" (click)="getResumeMobile()" *ngIf="commandeData?.length">
+        <div class="notification" (click)="getResumeMobile()" *ngIf="(commandeData$ | async)?.length">
             <img src ='./../../assets/svg/panierLinge.png '>
-            <span class="total">{{commandeData.length}}</span>
+            <span class="total">{{commandeData?.length}}</span> 
           </div>
 
         <div class="menu-icon" *ngIf="IconShow && !this.open" (click)="drop()">

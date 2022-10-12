@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { environment } from 'src/environments/environment';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class UtilService {
 
 
   constructor() { }
+
   postRequest(endPoint:string, data:any) {
     return new Promise((resolve, reject) => {
       axios.post(environment.apiUrl + endPoint + "/", data).then(
@@ -68,6 +70,11 @@ export class UtilService {
   }
   deleteStorege(key:string){
     localStorage.removeItem(key)
+  }
+
+  showSnackBar(msg:string, matSnac:MatSnackBar){
+    matSnac.open(msg)
+    
   }
 
 

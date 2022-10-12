@@ -1,12 +1,12 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import axios, { AxiosRequestConfig } from 'axios';
 import { reducers } from 'src/_contants/store.reducers';
 import { Login } from 'src/_models/register';
-import { setProviderList } from 'src/_store/providersList/providerList.action';
 import { setUserProfile } from 'src/_store/searchUser/searchUser.action';
 import { UtilService } from 'src/_utils/util.service';
 import {environment} from './../../../environments/environment'
@@ -28,7 +28,9 @@ export class LoginComponent implements OnInit {
   constructor(public fb: FormBuilder,
     private router: Router, 
     private store:Store<typeof reducers>,
-    private utilService:UtilService) { 
+    private utilService:UtilService ,
+    
+    ) { 
     this.loginForm = this.fb.group({
       'username':['', [Validators.required]],
       'password':['', [Validators.required, Validators.minLength(8)]]
@@ -43,11 +45,13 @@ export class LoginComponent implements OnInit {
   }
  
   login(login:FormGroup){
+// this.utilService.snackbar('connection réussi','center','top')
+    this.router.navigateByUrl('home/accueil')
     if(login.valid){
       this.load = true
       const loginVal = login.value
       const data = new Login(loginVal.username, loginVal.password)
-      this.utilService.postRequest("login-jwt",data).then(
+      this.utilService.postRequest("token",data).then(
         (res:any)=>{
           this.utilService.setStorage('token',res.data.access)
 
@@ -61,7 +65,7 @@ export class LoginComponent implements OnInit {
               console.log("user data",res)
               this.store.dispatch(setUserProfile({userProfile:res.data})) 
               this.router.navigateByUrl('home/accueil')
-            },(err)=>{
+            },(err)=>{ 
               this.load = false
             })
           console.log(res)

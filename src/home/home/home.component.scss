@@ -10,7 +10,7 @@
   box-shadow: 2px 2px 10px #8795a1;;
   position: fixed;
   background: #FFF;
-    z-index: 9999;
+    z-index: 999;
     width:-webkit-fill-available;
     top:0
 }
@@ -159,21 +159,49 @@ span.logout {
   width: 4rem;
   display: none;
 }
-span.total { 
-  position: absolute;
-  top: -7px;
-  right: 2rem;
-  padding: 0rem 0.6rem;
-  background-color: yellow;
-  border-radius: 0.5rem;
-  font-size: 1.2rem;
-}
+
 .slidInNotification{
 
 }
 .slidOutNotification{
 
 }
+
+
+
+/* IPHONE STYLE*/
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+
+    .menu-bar {
+      height: 5rem;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 2px 2px 10px #8795a1;;
+      position: fixed;
+      background: #FFF;
+        z-index: 9999;
+        width:-webkit-fill-available; 
+        top: 0;
+        padding-top: 4rem;
+    }
+
+    .mainHeader {
+      position: absolute;
+      z-index: 1000;
+      right: 0rem;
+      top: 0rem;
+      padding-top: 3rem;
+    }
+
+}
+
 
 
 
