@@ -17,6 +17,37 @@ import {SocialLoginModule,SocialAuthServiceConfig} from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
 import { TokenInterceptor } from 'src/_utils/interceptor.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DBConfig, NgxIndexedDBModule } from 'ngx-indexed-db';
+
+
+// Ahead of time compiles requires an exported function for factories
+export function migrationFactory() {
+  // The animal table was added with version 2 but none of the existing tables or data needed
+  // to be modified so a migrator for that version is not included.
+  return {
+    1: (db: any, transaction: { objectStore: (arg0: string) => any; }) => {
+      const store = transaction.objectStore('people');
+      store.createIndex('country', 'country', { unique: false });
+    },
+    3: (db: any, transaction: { objectStore: (arg0: string) => any; }) => {
+      const store = transaction.objectStore('people');
+      store.createIndex('age', 'age', { unique: false });
+    }
+  };
+}
+
+
+const dbConfig: DBConfig  = {
+  name: 'MyCoimmandeDb',
+  version: 1,
+  objectStoresMeta: [{
+    store: 'commandeStore',
+    storeConfig: { keyPath: 'id', autoIncrement:true },
+    storeSchema: [
+         { name: 'data', keypath: 'data', options: { unique: true }}
+    ]
+  }]
+};
 
 
 
@@ -45,6 +76,7 @@ export function playerFactory(): any {
     SocialLoginModule,
     HttpClientModule,
     LottieModule.forRoot({player:playerFactory}),
+    NgxIndexedDBModule.forRoot(dbConfig),
 
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({

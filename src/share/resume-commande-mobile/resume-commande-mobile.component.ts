@@ -6,6 +6,8 @@ import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 import { reducers } from 'src/_contants/store.reducers';
 import { AppStore } from 'src/_enumes/stores.enum';
+import { setCommandeData } from 'src/_store/commandeData/commandeData.action';
+import { ConfirmeComponent } from '../confirme/confirme.component';
 import { SucessAlertComponent } from '../sucess-alert/sucess-alert.component';
 import { WaitingLoadingComponent } from '../waiting-loading/waiting-loading.component';
 
@@ -132,12 +134,12 @@ export class ResumeCommandeMobileComponent implements OnInit {
     
    }
    fermer(){
-     this.dialog.open(WaitingLoadingComponent,{
+    //  this.dialog.open(WaitingLoadingComponent,{
       
-      width:'20rem',
-      height:'20rem',
-      data:this.close
-     })
+    //   width:'20rem',
+    //   height:'20rem',
+    //   data:this.close
+    //  })
       this.open2 = false
 
    }
@@ -187,6 +189,34 @@ export class ResumeCommandeMobileComponent implements OnInit {
   }
   payer(){
 
+  }
+  closeResume(){
+    this.dialogRef.close()
+  }
+
+  deleteElement(element:any, index:number){
+    const dialogrefe =  this.dialog.open(ConfirmeComponent,{
+      data:{
+        titleMessage:'',
+        dialogMessage:"Voulez-vous retirer les " +element.libelle+"s de votre panier à linge?"
+
+      }
+    });
+    dialogrefe.afterClosed().subscribe(result =>{
+      if(result){
+        console.log('ok')
+        console.log(element)
+        let commandeDataCopie = [...this.commandeData]
+        
+        console.log('commandes',commandeDataCopie)
+        commandeDataCopie.splice(index,1)
+        console.log('commandes',commandeDataCopie)
+        this.store.dispatch(setCommandeData({commandeData:commandeDataCopie}))
+      }else{
+        console.log('no')
+      }
+    })
+   
   }
 
 }

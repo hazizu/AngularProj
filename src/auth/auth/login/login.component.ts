@@ -46,36 +46,58 @@ export class LoginComponent implements OnInit {
  
   login(login:FormGroup){
 // this.utilService.snackbar('connection réussi','center','top')
-    this.router.navigateByUrl('home/accueil')
+    // this.router.navigateByUrl('home/accueil')
     if(login.valid){
       this.load = true
       const loginVal = login.value
       const data = new Login(loginVal.username, loginVal.password)
-      this.utilService.postRequest("token",data).then(
+      console.log('data',data)
+      this.utilService.postRequest("users/login-username-password/",data).then(
         (res:any)=>{
-          this.utilService.setStorage('token',res.data.access)
-
-          const getUser:AxiosRequestConfig = {
-            url:environment.apiUrl + 'user-dashboard/',
-            method: 'GET',
-            headers: {"Authorization":`JWT ${res.data.access}`}
-          }
-            axios(getUser).then((res)=>{
+          console.log(res.data.token)
+          this.utilService.setStorage('token',res.data.token)
+          this.utilService.getRequest('users/user-dashboard/',null).then(
+            (res:any)=>{
+              console.log('information user', res)
               this.load = false
-              console.log("user data",res)
               this.store.dispatch(setUserProfile({userProfile:res.data})) 
               this.router.navigateByUrl('home/accueil')
-            },(err)=>{ 
+            },(err:any)=>{
               this.load = false
-            })
-          console.log(res)
+              console.log('error get info user', err)
+            }
+          )
+
+
+
+
+          // const getUser:AxiosRequestConfig = {
+          //   url:environment.apiUrl + 'user-dashboard/',
+          //   method: 'GET',
+          //   headers: {"Authorization":`JWT ${res.data.access}`}
+          // }
+            // axios(getUser).then((res)=>{
+            //   this.load = false
+            //   console.log("user data",res)
+            //   this.store.dispatch(setUserProfile({userProfile:res.data})) 
+            //   this.router.navigateByUrl('home/accueil')
+            // },(err)=>{ 
+            //   this.load = false
+            // })
+
+
+
+
+
+
+          
         },(err)=>{
+          this.load = false
           if(err.response.status==400){
             this.badRequestMsg=true
           }else if(err.code ="ERR_NETWORK"){
             this.alertLoginError = true
           }
-          this.load = false
           console.log("erreur login",err)
         }
       )

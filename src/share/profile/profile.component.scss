@@ -26,3 +26,11 @@
     .information{
         margin-left: 3rem;
     }
+
+    .ph-item{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        direction: ltr;
+        border-radius: 2px;
+    }

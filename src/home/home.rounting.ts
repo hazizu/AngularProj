@@ -8,6 +8,8 @@ import { ProvideRegisterComponent } from 'src/auth/auth/provide-register/provide
 import { ServicesPageComponent } from 'src/share/services-page/services-page.component';
 import { SelectClothesFormComponent } from 'src/share/select-clothes-form/select-clothes-form.component';
 import { ProfileComponent } from 'src/share/profile/profile.component';
+import { ProviderDetailLoadingComponent } from 'src/share/provider-detail-loading/provider-detail-loading.component';
+import { ProviderItemLoadingComponent } from 'src/share/provider-item-loading/provider-item-loading.component';
 
 
 
@@ -23,11 +25,14 @@ const routes: Routes = [
                 path:'provider-details/:name', component:ProviderDetailsComponent,pathMatch:"full"
             },
             {
-               path:'choix-vêtements', component:SelectClothesFormComponent,pathMatch:"full"
+               path:'choix-vêtements-prestataire/:id', component:SelectClothesFormComponent,pathMatch:"full"
             },
             {
                 path:'our-services', component:ServicesPageComponent,pathMatch:"full"
             },
+            {
+                path:'loading',component:ProviderItemLoadingComponent, pathMatch:"full"
+            }
                             
         ]      
     },

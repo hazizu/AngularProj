@@ -1,5 +1,8 @@
 <div class="main">
     <div class="resumeTitle">
+        <span class="updateLib" (click)="closeResume()"><mat-icon>
+            arrow_back_ios
+        </mat-icon></span>
         <span>Votre panier à linge !</span>
         <div class="pannier">
             <span class="total">
@@ -18,7 +21,7 @@
             <div class="el2">
             <span class="prix">{{el.price}} Fcfa</span>
             <div class="updateLib">
-                <span > <mat-icon>delete</mat-icon></span>
+                <span (click)="deleteElement(el,i)"> <mat-icon>delete</mat-icon></span>
                 <span (click)="updateElement(el,i)"><mat-icon>edit</mat-icon></span>
             </div>
             <!-- <span class="updateLib" (click)="updateElement(el,i)" *ngIf="!open2">modifier</span> -->

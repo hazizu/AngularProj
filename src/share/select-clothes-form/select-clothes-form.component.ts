@@ -9,6 +9,7 @@ import { setCommandeData } from 'src/_store/commandeData/commandeData.action';
 import { AlertComponent } from '../alert/alert.component';
 import { AppStore } from 'src/_enumes/stores.enum';
 import { map } from 'rxjs/operators';
+import { NgxIndexedDBService } from 'ngx-indexed-db';
 
 @Component({
   selector: 'app-select-clothes-form',
@@ -18,7 +19,7 @@ import { map } from 'rxjs/operators';
 export class SelectClothesFormComponent implements OnInit {
   @Input()  showSelectClothesForm:boolean = false;
   @Output() clicked:EventEmitter<boolean> = new EventEmitter<boolean>();
-  saleForm:FormGroup
+ 
   totalElementPrice?:number
   qte?:any
   q:any
@@ -35,10 +36,11 @@ export class SelectClothesFormComponent implements OnInit {
   
  
 
-  constructor(private fb: FormBuilder,private dialog:MatDialog, private store:Store<typeof reducers>) { 
-   this.saleForm = this.fb.group({
-
-   })
+  constructor(private fb: FormBuilder,
+    private dialog:MatDialog, 
+    private store:Store<typeof reducers>,
+    private dbService: NgxIndexedDBService) { 
+   
   }
 
   ngOnInit(): void {
@@ -170,6 +172,8 @@ export class SelectClothesFormComponent implements OnInit {
         list.push(obj)
         console.log(list)
         this.store.dispatch(setCommandeData({commandeData:[...list]}))
+
+  
       }
     if(list.length){
       i = this.findElement(list,libelle)
@@ -195,6 +199,9 @@ getResumeMobile(){
     data:this.resumeCommande
   })
   this.store.dispatch(setCommandeData({commandeData:[...this.resumeCommande]}))
+ 
+
+ 
 }
 
 alertNoQuantite(libelle:string) {

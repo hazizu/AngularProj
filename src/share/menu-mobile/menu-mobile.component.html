@@ -1,4 +1,21 @@
 <div class="menu-container" (click)="getClicked()" [ngStyle]="styles">
+    <ng-container *ngIf="imagePosition">
     <span class="menu-text">{{text}}</span>
+    <ng-container *ngIf="isIconOrImg">
     <img class="menu-image" [src]="imgUrl">
+    </ng-container>
+    <ng-container *ngIf="!isIconOrImg">
+    <span><mat-icon>{{icon}}</mat-icon></span>
+</ng-container>
+</ng-container>
+
+<ng-container *ngIf="!imagePosition">
+    <ng-container *ngIf="isIconOrImg">
+    <img class="menu-image" [src]="imgUrl">
+</ng-container>
+<ng-container *ngIf="!isIconOrImg">
+    <span><mat-icon>{{icon}}</mat-icon></span>
+</ng-container>
+    <span class="menu-text">{{text}}</span>
+</ng-container>
 </div>

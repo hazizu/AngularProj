@@ -22,6 +22,8 @@ export class ProvideRegisterComponent implements OnInit {
   localite:any
   loading:boolean = false;
   selectedProvide:any
+  showSuccess:boolean = false
+  provideData:any
   
   // prestations2 = [
   //   {id:"",libelle:"fanico",},
@@ -32,18 +34,18 @@ export class ProvideRegisterComponent implements OnInit {
       this.provideForm = this.fb.group({
         "firstName":["", Validators.required],
         "lastName":["", Validators.required],
-        "sexe":[""],
+        "sexe":["",Validators.required],
         "telephone": ["",Validators.required],
         "email": ["", [Validators.email,Validators.required]],
-        "prestation":[""],
+        "prestation":["",Validators.required],
         "password":["",[Validators.required, Validators.minLength(6)]],
-        "commune":[""]
+        "commune":["",Validators.required]
         // "confirmPassWord":["",[Validators.required, Validators.minLength(6)]]
       })
    }
 
   ngOnInit(): void {
-    this. getProvideList()
+    this.getProvideList()
     this.getGenres()
     this.getLocalite()
   }
@@ -54,24 +56,23 @@ export class ProvideRegisterComponent implements OnInit {
   }
 
   provideRegiste(register:FormGroup){
+   
     if(register.valid){
       this.loading = true
       console.log(register.value)
-      this.util.postRequest("register",
+      this.util.postRequest("users/register-prestataire/",
       new Provider(
         register.value.firstName,
         register.value.telephone.number,
-        // register.value.commune,
-        1,
-        1,
-        
-        // register.value.sexe,
+        register.value.commune,
+        register.value.sexe,
         register.value.password,
-        1,
-        // this.selectedProvide,
+        register.value.prestation,
         this.imageBase64,
         register.value.email)).then(
-          (res)=>{
+          (res:any)=>{
+            this.showSuccess = true 
+           this.provideData = res.data
             this.loading = false;
             console.log('inscription réuissi',res)
           },(err)=>{
@@ -111,27 +112,31 @@ export class ProvideRegisterComponent implements OnInit {
     })
   }
   getProvideList(){
- this.util.getRequest("speciality-list",null).then(
+ this.util.getRequest("users/speciality-list/",null).then(
   (res:any)=>{
     this.prestations = res.data
   }
  )
   }
   getGenres(){
-    this.util.getRequest("gender-list",null).then(
+    this.util.getRequest("users/gender-list/",null).then(
       (res:any)=>{
-        console.log(res)
+        console.log("genre",res)
         this.sexe = res.data
       }
     )
-  }
+  } 
   getLocalite(){
-    this.util.getRequest('location-list',null).then(
+    this.util.getRequest('users/location-list/',null).then(
       (res:any)=>{
         this.localite = res.data
-        console.log(res)
+        console.log("localité",res)
       }
     )
+  }
+
+  continue(){
+    this.router.navigateByUrl('')
   }
 
 }

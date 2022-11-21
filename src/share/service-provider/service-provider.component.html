@@ -7,12 +7,33 @@
 
 
 <div class="demo">
+
+  <!-- <ng-container *ngIf="(loadingTile$ | async); else listMap">
+    <app-carte-pulser *ngFor="let i of [1,1,1, 1]">
+   </app-carte-pulser>
+ </ng-container>  -->
+
+ <ng-container *ngIf="!providerList ; else listProvider">
+  <div class="loading">
+  <app-provider-item-loading *ngFor="let i of [1,1,1, 1]">
+  </app-provider-item-loading>
+</div>
+ </ng-container>
+
+ <ng-template #listProvider>
+
   <div class="mainCard">
     <div class="mainCardContent" *ngFor="let provider of providerList | filter:searchValue | paginate:{itemsPerPage: 4, currentPage: page} ; let indexOfelement=index">
-      <div class="miniCard" (click)="getProvider(provider.name, indexOfelement)">
-        <img [src]="provider.imageUrl"/>
+      <div class="miniCard" (click)="getProvider(provider?.id, indexOfelement)">
+        <div>
+        <div class="miniCardImg" [style.backgroundImage]="'url('+ provider.profile_image_url +')'" *ngIf="provider.profile_image_url"></div>
+        <div class="miniCardImg" style="background-image: url('assets/svg/woman.png') "  *ngIf="!provider.profile_image_url"></div>
+
+        <!-- <img [src]="provider.profile_image_url" *ngIf="provider.profile_image_url"/> 
+        <img src="assets/svg/woman.png" *ngIf="!provider.profile_image_url"/> --> 
+      </div>
         <div class="info">
-        <span class="name">{{provider.name}}</span>
+        <span class="name">{{provider?.username}}</span>
         <div class="grade">
           <mat-icon class="grade-icon">grade</mat-icon>
           <mat-icon class="grade-icon">grade</mat-icon>
@@ -20,7 +41,7 @@
           <mat-icon class="grade-iconNone">grade</mat-icon>
           <mat-icon class="grade-iconNone">grade</mat-icon>
         </div>
-        <div class="button" (click)="getProvider(provider.name, indexOfelement)">
+        <div class="button" (click)="getProvider(provider?.id, indexOfelement)">
           <!-- <app-button labelButton="contactez-moi" (clicked)="getProvider(provider.name, indexOfelement)"></app-button> -->
           Contactez
         </div>
@@ -32,4 +53,5 @@
       <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
   </div>
+</ng-template>
   </div>

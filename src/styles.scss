@@ -91,8 +91,8 @@ ngx-intl-tel-input {
     flex-direction: row;
 }
 mat-icon.mat-icon.notranslate.menu-icons.material-icons.mat-icon-no-color {
-  font-size: 4rem;
-  margin-right: 2rem;
+  font-size: 3rem;
+  margin-right: 1rem;
   color: #0fccce;
 }
 .mat-progress-spinner circle, .mat-spinner circle {
@@ -130,7 +130,19 @@ span.total {
   font-size: 1.2rem;
   color: #000000;
 }
-.updateLib span mat-icon {
+.updateLib mat-icon {
   font-size: 1.3rem;
   color: #0fccce;
+}
+
+.loding-container-item .ph-item {
+  border: none;
+  background-color: #fff;
+  direction: ltr;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 0;
+  padding:0;
 }

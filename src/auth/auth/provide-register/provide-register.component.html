@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main" *ngIf="!showSuccess">
     <img class="logo" src="./../../../assets/logo/fanico.png">
     <div class="login" (click)="getLogin()">
         <span>Connectez-vous</span>
@@ -11,7 +11,6 @@
     </div> -->
     <form class="form-container" [formGroup]="provideForm" (ngSubmit)="provideRegiste(provideForm)">
 
-        
         <div class="formGroupInput">
 
         <div class="part1">
@@ -20,7 +19,7 @@
 
                 <label class="inputTag" [style.backgroundImage]="'url('+ imageBase64 +')'">
                      <ng-container *ngIf="photo">Photo</ng-container>
-                    <input id="inputTag" type="file" style="display:none" accept=".png, .jpg, .jpeg"(change)="getFile($event)"/>
+                    <input id="inputTag" type="file" style="display:none" accept=".png, .jpg, .jpeg"(change)="getFile($event)" capture="camera" />  
                   </label>
             </div>
 
@@ -96,4 +95,23 @@
         <app-button labelButton="ENREGISTRER" [loading]="loading"></app-button>
 </div>
     </form>
+
+
+    
+</div>
+<div [ngClass]="{successContainer:true, slideInSuccess:showSuccess, slideOutSuccess:!showSuccess}">
+    <div [ngClass]="{contenu:true, showContenu:showSuccess}">
+    <div class="success-img">
+        <img src="./../../../assets/logo/succes (1).png">
+    </div>
+
+    <div class="test">
+        <span class="felicitation">Félicitations!</span> Mr/Mme <span class="test-bold">{{provideForm.value.lastName}} {{provideForm.value.firstName}}</span>, votre compte <span class="test-bold">e-fanico</span> a été créer avec succès.
+        Vous-êtes maintenant prestataire chez e-fanico.
+    </div>
+
+    <div class="btn" (click)="continue()">
+        CONTINUER
+    </div>
+   </div>
 </div>

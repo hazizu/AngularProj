@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { map, Observable } from 'rxjs';
 import { reducers } from 'src/_contants/store.reducers';
@@ -7,6 +7,9 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
+import { AppStore } from 'src/_enumes/stores.enum';
+import { UtilService } from 'src/_utils/util.service';
+import { setProviderList } from 'src/_store/providersList/providerList.action';
 const htmlToPdfmake = require("html-to-pdfmake");
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
@@ -23,13 +26,42 @@ export class ProviderDetailsComponent implements OnInit {
   providerList$?:Observable<any>
   providerList:any
   showSelectClothesForm:boolean=false
+  providerId$?:Observable<any>
+  providerId?:any
+  providerData:any
+  arrive:boolean = false
 
   @ViewChild('dowloadTemp')
   dowloadTemp!: ElementRef;
+  
 
-  constructor(private router: Router,private store:Store<typeof reducers>) { }
+  constructor(private router: Router,private store:Store<typeof reducers>,
+    private route: ActivatedRoute,
+    private utils:UtilService) { }
 
   ngOnInit(): void {
+    console.log('router',this.router.url.split('/').pop())
+    this.providerId = this.router.url.split('/').pop()
+
+  this.providerList$ = this.store.select(AppStore.providerList).pipe(
+    map(
+      (state:any)=>state.providerList
+    )
+  )
+  this.providerList$.subscribe((res)=>{
+    console.log('listy',res)
+    this.arrive = true
+    if(res?.length){
+      this.providerList = res
+      res.forEach((provider:any) => {
+        if(provider.id == this.providerId){
+          this.providerData = provider 
+        }
+      });
+
+    }
+  
+  })
 
   }
 
@@ -37,31 +69,26 @@ export class ProviderDetailsComponent implements OnInit {
     this.router.navigateByUrl('home/accueil')
   }
   valide(){
-    this.router.navigateByUrl('home/choix-vêtements')
+    this.router.navigateByUrl('home/choix-vêtements-prestataire/' + this.providerId)
     // this.showSelectClothesForm = true;
   }
   back(){
     this.showSelectClothesForm = false; 
   }
-  download(){
-    // const pdfTable = this.dowloadTemp.nativeElement;
-    // var html = htmlToPdfmake(pdfTable.innerHTML);
-    // const documentDefinition = { content: html };
-    // pdfMake.createPdf(documentDefinition).download(); 
-
-
-    let data:any = document.getElementById('dowloadTemp');
-    html2canvas(data).then((canvas) =>{
-      let docWidth = 208;
-      let docHeight = canvas.height * docWidth / canvas.width;
-
-      const contentDataUrl = canvas.toDataURL('image/jpg')
-      let doc  = new jsPDF('p','mm','a4');
-      let position = 0
-      doc.addImage(contentDataUrl,'JPG', 0, position, docWidth, docHeight)
-      doc.save('exportedPdf.pdf');
-    });
-
+  connect(){
+    
   }
+  // getProviderList(){
+  //   this.utils.getRequest('users/prestataires-liste/',null).then(
+  //     (res:any)=>{
+  //       console.log('provider list', res.data)
+  //       if(!this.providerList.length){
+  //         this.providerData = res.data
+  //       }
+  //       this.store.dispatch(setProviderList({provider:res.data}))
+  //     }
+  //   )
+  // }
+
 
 }

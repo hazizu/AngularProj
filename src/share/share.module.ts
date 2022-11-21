@@ -36,6 +36,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { SelectCheckboxComponent } from './select-checkbox/select-checkbox.component';
 import { MatSelectComponent } from './mat-select/mat-select.component';
+import { ProviderDetailLoadingComponent } from './provider-detail-loading/provider-detail-loading.component';
+import { ProviderItemLoadingComponent } from './provider-item-loading/provider-item-loading.component';
 
 
 
@@ -73,7 +75,9 @@ import { MatSelectComponent } from './mat-select/mat-select.component';
     ProfileComponent,
     CheckboxComponent,
     SelectCheckboxComponent,
-    MatSelectComponent
+    MatSelectComponent,
+    ProviderDetailLoadingComponent,
+    ProviderItemLoadingComponent
   ],
   imports: [
     CommonModule,
@@ -111,7 +115,8 @@ import { MatSelectComponent } from './mat-select/mat-select.component';
     WaitingLoadingComponent,
     ProfileComponent,
     CheckboxComponent,
-    SelectCheckboxComponent
+    SelectCheckboxComponent,
+    ProviderDetailLoadingComponent
   ]
 })
 export class ShareModule { }

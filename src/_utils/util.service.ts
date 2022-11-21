@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import { environment } from 'src/environments/environment';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
@@ -14,7 +14,15 @@ export class UtilService {
 
   postRequest(endPoint:string, data:any) {
     return new Promise((resolve, reject) => {
-      axios.post(environment.apiUrl + endPoint + "/", data).then(
+      const token = this.getStorage('token')
+      const axiosPostReq:AxiosRequestConfig = {
+        url:environment.apiUrl + endPoint,
+        method:'post',
+        headers: {"Authorization":`JWT ${token}`},
+        data:data
+      }
+      console.log('url',axiosPostReq.url)
+      axios(axiosPostReq).then(
         (res)=>{
           resolve(res)
         },(err)=>{
@@ -24,17 +32,32 @@ export class UtilService {
     })    
   }
 
+  // this.utilService.setStorage('token',res.data.access)
+  // const getUser:AxiosRequestConfig = {
+  //   url:environment.apiUrl + 'user-dashboard/',
+  //   method: 'GET',
+  //   headers: {"Authorization":`JWT ${res.data.access}`}
+  // }
+
 
   getRequest(endPoint:string,data:any){
-    return new Promise((resolve, reject) =>{
-      axios.get(environment.apiUrl + endPoint + "/", data).then(
+    return new Promise((resolve, reject) => {
+      const token = this.getStorage('token')
+      console.log('token',token)
+      const axiosPostReq:AxiosRequestConfig = {
+        url:environment.apiUrl + endPoint,
+        method:'get',
+        headers: {"Authorization":`TOKEN ${token}`},
+        data:data
+      }
+      axios(axiosPostReq).then(
         (res)=>{
           resolve(res)
         },(err)=>{
           reject(err)
         }
       )
-    })
+    }) 
   }
 
   async convertToBase64(file: File | any){
@@ -76,6 +99,8 @@ export class UtilService {
     matSnac.open(msg)
     
   }
+
+
 
 
 }

@@ -23,9 +23,9 @@ export class RegisterComponent implements OnInit {
       // 'firstName':['', [Validators.required]],
       'username':['', [Validators.required]],
       'email':['', [Validators.required, Validators.email]],
-      // 'telephone':['', [Validators.required]],
+       'telephone':['', [Validators.required]],
       'password':['', [Validators.required,Validators.minLength(8)]],
-      'confPassWord':['', [Validators.required,Validators.minLength(8)]]
+      // 'confPassWord':['', [Validators.required,Validators.minLength(8)]]
     })
    }
 
@@ -35,24 +35,24 @@ export class RegisterComponent implements OnInit {
 
   }
   register(register:FormGroup){
-    alert('yes')
     if(register.valid){
       this.load = true;
       const registerVal= register.value
       
-      const data = new Register(registerVal.username,registerVal.email,registerVal.password,registerVal.confPassWord)
+      const data = new Register(registerVal.username,registerVal.email, registerVal.telephone.number, '', registerVal.password)
+      console.log('value',registerVal.telephone)
    
-      // this.utilService.postRequest("register",data).then(
-      //   (res)=>{
-      //     this.load = false;
-      //     console.log(res)
-      //     this.router.navigateByUrl('/')
-      //   },
-      //   (err:any)=>{
-      //     this.load = false
-      //     console.log("error",err)
-      //   }
-      // )
+      this.utilService.postRequest("users/register-utilisateur/",data).then(
+        (res)=>{
+          this.load = false;
+          console.log(res)
+          this.router.navigateByUrl('/')
+        },
+        (err:any)=>{
+          this.load = false
+          console.log("error",err)
+        }
+      )
     }
     else{
         this.alert = true;

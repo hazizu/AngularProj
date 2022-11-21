@@ -1,4 +1,4 @@
 export const environment = {
-  apiUrl:"http://192.168.1.40:9000/api-v1/users/users/",
+  apiUrl:"https://e-fanico.herokuapp.com/api-v1/",
   production: true
 };

@@ -8,9 +8,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class MenuMobileComponent implements OnInit {
 
   @Input() imgUrl?: string;
-  @Input() text?: string;
+  @Input() text: string ="";
   @Input() styles:any ={}
   @Output() clicked:EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input() imagePosition:boolean = true
+  @Input() icon:string =''
+  @Input() isIconOrImg:boolean = true
   constructor() { }
 
   ngOnInit(): void {

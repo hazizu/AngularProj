@@ -5,6 +5,9 @@
 //     width: 14rem;
 //     margin: 1rem;
 // }
+.loading {
+  padding-top: 5rem;
+}
 
 span.name {
   font-size: 1rem;
@@ -193,6 +196,14 @@ body {
     flex-direction: row;
     align-items: center;
 }
+.miniCardImg {
+  width: 7rem;
+  height: 7rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+}
+
 
 
     .miniCard img{

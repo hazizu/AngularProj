@@ -8,6 +8,9 @@ import { AppStore } from 'src/_enumes/stores.enum';
 import { ConfirmeComponent } from 'src/share/confirme/confirme.component';
 import { setCommandeData, setProfilState, } from 'src/_store/commandeData/commandeData.action';
 import { ResumeCommandeMobileComponent } from 'src/share/resume-commande-mobile/resume-commande-mobile.component';
+import { UtilService } from 'src/_utils/util.service';
+import { setProviderList } from 'src/_store/providersList/providerList.action';
+import { NgxIndexedDBService } from 'ngx-indexed-db';
 
 export interface DialogData{
   dialogMessage:string;
@@ -36,9 +39,12 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private store: Store<typeof reducers>,
     public dialog: MatDialog,
+    private utils : UtilService,
+    private dbService: NgxIndexedDBService
   ) { }
 
   ngOnInit(): void {
+    this.getProviderList()
  
     this.commandeData$ = this.store.select(AppStore.commandeData).pipe(
       map(
@@ -103,8 +109,6 @@ export class HomeComponent implements OnInit {
        console.log('oui',result);
        this.router.navigateByUrl("");
      }else{
-    
-
      }
    })
   }
@@ -121,11 +125,30 @@ export class HomeComponent implements OnInit {
       }
     })
     this.store.dispatch(setCommandeData({commandeData:[...this.commandeData]}))
+   
+      this.dbService
+      .add('commandeStore', this.commandeData)
+      .subscribe((key) => {
+        console.log('key: ', key);
+      });
+  
+    
   }
 
   clear(){
     this.open = !this.open;
     this.IconClear = false;
     this.IconShow = true;
+  }
+
+  getProviderList(){
+    this.utils.getRequest('users/prestataires-liste/',null).then(
+      (res:any)=>{
+        console.log('provider list', res.data)
+        this.store.dispatch(setProviderList({provider:res.data}))
+
+
+      }
+    )
   }
 }

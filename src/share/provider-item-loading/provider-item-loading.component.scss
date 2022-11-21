@@ -1,0 +1,46 @@
+
+.ph-picture {
+    background-color: #ced4da;
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+}
+
+.content {
+    display: flex;
+    background-color: #fff;
+    box-shadow: 1rem 1rem 1rem #f0ededf5;
+    width: inherit;
+    padding: 1rem;
+    margin: 0;
+    background-color: white;
+    width: 21rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+
+.info {
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 1rem;
+}
+
+.stars .ph-picture {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    margin-right: 0.2rem;
+}
+
+.stars {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.ph-col-8.big.name {
+    height: 1.5rem;
+    border-radius: 0.4rem;
+}
