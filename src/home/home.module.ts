@@ -6,6 +6,7 @@ import { HomeRoutingModule } from './home.rounting';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ProviderDetailsComponent } from './provider-details/provider-details.component';
 import {MatIconModule} from "@angular/material/icon";
+import { BottomMenuComponent } from './bottom-menu/bottom-menu.component';
 
 
 
@@ -15,6 +16,7 @@ import {MatIconModule} from "@angular/material/icon";
     HomeComponent,
     HomePageComponent,
     ProviderDetailsComponent,
+    BottomMenuComponent,
 
   ],
   imports: [

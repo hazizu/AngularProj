@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthHomeComponent } from './auth-home.component';
+import { BottomMenuComponent } from './bottom-menu.component';
 
-describe('AuthHomeComponent', () => {
-  let component: AuthHomeComponent;
-  let fixture: ComponentFixture<AuthHomeComponent>;
+describe('BottomMenuComponent', () => {
+  let component: BottomMenuComponent;
+  let fixture: ComponentFixture<BottomMenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AuthHomeComponent ]
+      declarations: [ BottomMenuComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AuthHomeComponent);
+    fixture = TestBed.createComponent(BottomMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

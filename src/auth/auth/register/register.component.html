@@ -1,14 +1,20 @@
-<div class="formsContainer">
+<div class="formsContainer" *ngIf="!showSuccess">
     <img class="logo" src="./../../../assets/logo/fanico.png">
+    <span class="connect-in-login" (click)="goToConnect()"><img src="./../../../assets/svg/login.svg"></span>
+    <div class="mainBtn">
+        <span [ngClass]="{client:true, clientStyle:currentForm === 'clientForm'}" (click)="getForm('clientForm')">Client</span>
+        <span [ngClass]="{Prestataire:true, prestataireStyle:currentForm === 'prestataireForm'}" (click)="getForm('prestataireForm')">Prestataire</span>
+    </div>
     <!-- <div class="login" (click)="goToConnect()">
         <span>Connectez-vous</span>
         <span><img src="./../../../assets/svg/login.svg"></span>
     </div> -->
 
-    <div class="login-form">
-        <div class="login-title">
+     <div class="login-form">
+        <ng-container *ngIf="currentForm === 'clientForm'">
+         <div class="login-title">
             Créer un compte
-        </div>
+        </div> 
         <form [formGroup]="registerForm" (ngSubmit)="register(registerForm)" class="log">
 
             <div class="form-group">
@@ -18,14 +24,14 @@
                     icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <app-email-input label="Email" controlName="email"></app-email-input>
                 <app-input-error errorLabel="Veillez-saisir un email valid"
                     [showAlert]="registerForm.get('email')?.invalid && alert"
                     icon="./../../../assets/warning_amber_black_24dp.svg"></app-input-error>
-            </div>
+            </div>  -->
 
-
+<!--///////////////////////////////////////////////-->
             <!-- <div class="form-group">
                     <app-text-input label="Prénom" controlName="firstName"></app-text-input>
                     <app-input-error errorLabel="Ce champ est requis" [showAlert]="registerForm.get('firstName')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
@@ -36,6 +42,12 @@
                     <app-input-error errorLabel="Ce champ est requis" [showAlert]="registerForm.get('sexe')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
                 </div> -->
 
+                <!--///////////////////////////////////////////////-->
+
+
+
+
+
             <div class="form-group-tel">
                 <app-tel-input controlName="telephone" label="Téléphone"></app-tel-input>
                 <app-input-error errorLabel="Ce champ est requis"
@@ -43,41 +55,152 @@
                     icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
             </div>
 
+
+
+
+
+
+            <!--///////////////////////////////////////////////-->
+
             <!-- <button class="step_btn" type="button" mat-button matStepperNext>suivant</button> -->
             <!-- </mat-step> -->
             <!-- <mat-step> -->
             <!-- <ng-template matStepLabel>connexions</ng-template>  -->
+            <!--///////////////////////////////////////////////-->
 
 
 
-            <div class="form-group">
+             <div class="form-group">
                 <app-password-input label="Mot de passe" controlName="password"></app-password-input>
                 <app-input-error errorLabel="Veillez-saisir un email valid"
                     [showAlert]="registerForm.get('password')?.invalid && alert"
                     icon="./../../../assets/warning_amber_black_24dp.svg"></app-input-error>
-            </div>
+            </div> 
 
+
+
+<!--///////////////////////////////////////////////-->
             <!-- <div class="form-group">
                     <app-password-input label="Confirmez le mot de passe" controlName="confPassWord"></app-password-input>
                     <app-input-error errorLabel="Veillez-saisir un email valid" [showAlert]="registerForm.get('confPassWord')?.invalid && alert" icon="./../../../assets/warning_amber_black_24dp.svg"></app-input-error>
                 </div> -->
+<!--///////////////////////////////////////////////-->
+
+
+
+
 
 
             <div class="btn">
                 <app-button labelButton="ENREGISTRER" [loading]="load">
                 </app-button>
             </div>
-            <div class="connect-link">
+            <!--<div class="connect-link">
                 <span>Vous avez déjà un compte?</span>
                 <span class="connection" (click)="goToConnect()">Connectez-vous</span>
-            </div>
+            </div> -->
+
+
+
+
+            
+            <!--///////////////////////////////////////////////-->
             <!-- <button class="step_btn" mat-button matStepperPrevious>Retour</button> -->
 
             <!-- </mat-step>
         </mat-stepper>  -->
-        </form>
+        <!--///////////////////////////////////////////////-->
+         </form> 
+        </ng-container>
+     </div>
 
+
+
+        <!-- -==========PRESTATAIRE FORM ================-->
+
+        <div class="main" *ngIf="currentForm === 'prestataireForm'">
+
+
+                <form class="form-container" [formGroup]="provideForm" (ngSubmit)="provideRegiste(provideForm)">
+            
+                    <div class="formGroupInput">
+                        <mat-horizontal-stepper [linear]="isLinear" #stepper>
+                            <mat-step label="Personelle">
+
+                    
+            
+                    <div class="form-group">
+                        <app-text-input label="Nom" controlName="lastName"></app-text-input>
+                        <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('lastName')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+                    </div>
+            
+                    <div class="form-group">
+                        <app-text-input label="Prénom" controlName="firstName"></app-text-input>
+                        <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('firstName')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+                    </div>
+            
+                  
+            
+                    <div class="form-group-tel">
+                        <app-tel-input controlName="telephone" label="Téléphone"></app-tel-input> 
+                        <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('telephone')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+                    </div>
+            
+                    <button type="button" mat-button matStepperNext>Suivant</button>
+            
+                  
+            </mat-step>
+            <mat-step label="Contact">
+               
+            
+                 <div class="form-group">
+                    <app-select-input [options]="prestations" label="Prestation" controlName="prestation" placeholder="Prestation"></app-select-input>
+                    <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('sexe')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+                   </div>
+            
+                   <div class="form-group">
+                    <app-select-input [options]="localite" label="commune" placeholder="Commune" controlName="commune"></app-select-input>
+                    <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('commune')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
+                   </div>
+            
+                   
+            
+                    <div class="form-group">
+                        <app-password-input label="Mot de passe" controlName="password"></app-password-input>
+                        <app-input-error [showAlert]="provideForm.get('password')?.invalid && alert"  icon="./../../../assets/report_problem_black_24dp.svg" errorLabel="Mot de passe incorrect">
+                
+                        </app-input-error>
+                    </div>
+                
+            
+            <div class="button-register-prestataire">
+                    <app-button labelButton="ENREGISTRER" [loading]="loading"></app-button>
+            </div>
+            <button class="back_btn" mat-button matStepperPrevious>Retour</button>
+            </mat-step>
+                </mat-horizontal-stepper>
+            </div>
+                </form>
+            
+        </div>
+
+        <!-- -========== END PRESTATAIRE FORM ================-->
+
+</div>
+
+<div [ngClass]="{successContainer:true, slideInSuccess:showSuccess, slideOutSuccess:!showSuccess}">
+    <div [ngClass]="{contenu:true, showContenu:showSuccess}">
+    <div class="success-img">
+        <img src="./../../../assets/logo/succes (1).png">
     </div>
 
+    <div class="test">
+        <span class="felicitation">Félicitations!</span> Mr/Mme <span class="test-bold">{{provideForm.value.lastName}} {{provideForm.value.firstName}}</span>, votre compte <span class="test-bold">e-fanico</span> a été créer avec succès.
+        Vous-êtes maintenant prestataire chez e-fanico.
+    </div>
 
+    <div class="btn-continuer" (click)="continue()">
+        CONTINUER
+    </div>
+   </div>
 </div>

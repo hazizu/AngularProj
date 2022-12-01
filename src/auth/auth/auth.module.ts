@@ -9,7 +9,6 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ShareModule } from 'src/share/share.module';
 import { MatStepperModule } from '@angular/material/stepper';
 import { ProvideRegisterComponent } from './provide-register/provide-register.component';
-import { AuthHomeComponent } from './auth-home/auth-home.component';
 
 
 @NgModule({
@@ -18,7 +17,7 @@ import { AuthHomeComponent } from './auth-home/auth-home.component';
     RegisterComponent,
     AuthComponent,
     ProvideRegisterComponent,
-    AuthHomeComponent
+   
   ],
   imports: [
     CommonModule,

@@ -1,27 +1,29 @@
 <div class="main" *ngIf="!showSuccess">
-    <img class="logo" src="./../../../assets/logo/fanico.png">
+    <!-- <img class="logo" src="./../../../assets/logo/fanico.png">
     <div class="login" (click)="getLogin()">
         <span>Connectez-vous</span>
         <span><img src="./../../../assets/svg/login.svg"></span>
-    </div>
+    </div> -->
 
     <!-- <div class="title">
         <span class="info"> Vous-êtes prestataire? Inscrivez-vous ici</span>
         <img src='./../../../assets/edit_black_24dp.svg'> 
     </div> -->
+    
     <form class="form-container" [formGroup]="provideForm" (ngSubmit)="provideRegiste(provideForm)">
 
         <div class="formGroupInput">
-
+            <mat-horizontal-stepper [linear]="isLinear" #stepper>
+                <mat-step label="Personelle">
         <div class="part1">
 
-            <div class="image-container">
+            <!-- <div class="image-container">
 
                 <label class="inputTag" [style.backgroundImage]="'url('+ imageBase64 +')'">
                      <ng-container *ngIf="photo">Photo</ng-container>
                     <input id="inputTag" type="file" style="display:none" accept=".png, .jpg, .jpeg"(change)="getFile($event)" capture="camera" />  
                   </label>
-            </div>
+            </div> -->
 
 
       
@@ -35,22 +37,26 @@
             <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('firstName')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
                     <app-select-input [options]="sexe" label="Sexe" controlName="sexe" placeholder="Sexe"></app-select-input>
                     <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('sexe')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
-        </div>
+        </div> -->
 
         <div class="form-group-tel">
             <app-tel-input controlName="telephone" label="Téléphone"></app-tel-input> 
             <app-input-error errorLabel="Ce champ est requis" [showAlert]="provideForm.get('telephone')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg"></app-input-error>
         </div>
 
-        <div class="form-group">
+        <button type="button" mat-button matStepperNext>suivant</button>
+
+        <!-- <div class="form-group">
             <app-email-input label="Email" controlName="email"></app-email-input>
             <app-input-error [showAlert]="provideForm.get('email')?.invalid && alert" icon="./../../../assets/report_problem_black_24dp.svg" errorLabel="veuillez entrer un email valid"></app-input-error>
-        </div>
+        </div> -->
     </div>
 
+</mat-step>
+<mat-step label="Contact">
     <div class="part2">
 
         <!-- <div class="form-group">
@@ -90,11 +96,19 @@
             </app-input-error>
         </div> -->
     </div>
-</div>
+
+
 <div class="button">
         <app-button labelButton="ENREGISTRER" [loading]="loading"></app-button>
 </div>
+<button class="back_btn" mat-button matStepperPrevious>Retour</button>
+</mat-step>
+    </mat-horizontal-stepper>
+</div>
+
     </form>
+
+
 
 
     

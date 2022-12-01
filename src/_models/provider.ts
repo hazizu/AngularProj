@@ -6,24 +6,24 @@ export class Provider{
     username: string;
     phone_number:string;
     location:number
-    gender:number
-    profile_image:string;
+    // gender:number
+    // profile_image:string;
     password:string;
     speciality:number;
-    email: string
+    // email: string
 
     
-    constructor(username:string, phone_number:string, location:number,gender:number,password:string,speciality:number, profile_image:string,email:string){
+    constructor(username:string, phone_number:string, location:number,password:string,speciality:number){
         this.username = username;
         this.phone_number = phone_number;
         this.location = location;
-        this.gender = gender;
+        // this.gender = gender;
         this.password = password;
         this.speciality = speciality;
         // this.lastName = lastName;
         // this.firstName = firstName;
-        this.profile_image= profile_image;
-        this.email = email
+        // this.profile_image= profile_image;
+        // this.email = email
     }
 
 }

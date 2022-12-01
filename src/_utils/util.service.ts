@@ -39,17 +39,30 @@ export class UtilService {
   //   headers: {"Authorization":`JWT ${res.data.access}`}
   // }
 
+axiosConfing(data:any,endPoint:string,token:string){
+  const axiosGetReq:AxiosRequestConfig = {
+    url:environment.apiUrl + endPoint,
+    method:'get',
+    headers: {"Authorization":`TOKEN ${token}`},
+    data:data
+  }
+  return axiosGetReq
+}
+
+axiosConfingNoHeader(data:any,endPoint:string){
+  const axiosGetReq:AxiosRequestConfig = {
+    url:environment.apiUrl + endPoint,
+    method:'get',
+    data:data
+  }
+  return axiosGetReq
+}
+
 
   getRequest(endPoint:string,data:any){
     return new Promise((resolve, reject) => {
       const token = this.getStorage('token')
-      console.log('token',token)
-      const axiosPostReq:AxiosRequestConfig = {
-        url:environment.apiUrl + endPoint,
-        method:'get',
-        headers: {"Authorization":`TOKEN ${token}`},
-        data:data
-      }
+       const axiosPostReq:any  = token ? this.axiosConfing(data,endPoint,token) : this.axiosConfingNoHeader(data,endPoint)
       axios(axiosPostReq).then(
         (res)=>{
           resolve(res)

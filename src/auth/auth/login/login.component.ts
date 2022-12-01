@@ -105,4 +105,7 @@ export class LoginComponent implements OnInit {
       this.alert = true
     }
   }
+  goToRegister(){
+    this.router.navigateByUrl('register')
+  }
 }

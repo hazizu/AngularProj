@@ -1,0 +1,8 @@
+
+
+<div [ngClass]="{groupContainer:true,activeStyles: selectIndex === i}" *ngFor="let menu of menus; let i = index" (click)="getMenu(i)">
+        <span [ngClass]="{icon:true, activeStyle: selectIndex === i}">
+            <mat-icon class="icon-bottom-menu">{{menu.icon}}</mat-icon>
+        </span>
+        <span [ngClass]="{libelle:true, activeStyle: selectIndex === i}">{{menu.libelle}}</span> 
+</div>

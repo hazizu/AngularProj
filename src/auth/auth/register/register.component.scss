@@ -5,7 +5,7 @@
   font-weight: 100;
   line-height: 1;
   color: #0fccce;
-  margin-top: 5rem;
+  margin-top: 3rem;
   }
 
   .login-form {
@@ -86,8 +86,6 @@
   .mat-stepper-horizontal {
     background-color: initial;
     width: -webkit-fill-available;
-    padding-left: 3rem;
-    padding-right: 3rem;
 }
 button.mat-stepper-next.step_btn.ng-star-inserted {
     width: 100%;
@@ -146,9 +144,143 @@ button.mat-stepper-previous.step_btn.ng-star-inserted {
 .login span img {
   width: 2rem;
 }
+.mainBtn {
+  background-color: #f1f0f0;
+  /* padding: 1rem 2rem; */
+  display: flex;
+  width: 20rem;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+}
+
+  .main{
+    padding: 0rem 0rem 0rem 0rem;
+    width: inherit;
+    margin-top: -3rem;
+}
+
+.formGroupInput {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+span.client,span.Prestataire {
+  padding: 0.7rem;
+  display: block;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: #000000ba;
+  letter-spacing: 0.5px;
+}
+.client.clientStyle, .Prestataire.prestataireStyle{
+  background-color: #0fccce;
+  border-radius: 0.5rem;
+  color: #fff;
+
+}
+button.mat-stepper-next.ng-star-inserted,button.mat-stepper-previous.back_btn.ng-star-inserted {
+  outline: none;
+  width: -webkit-fill-available;
+  padding: 0.4rem;
+  border-radius: 1rem;
+  border: 1px solid #0fccce;
+  background-color: #fff;
+  color: #0fccce;
+  margin-top: 1rem;
+  letter-spacing: 1px;
+}
+.button-register-prestataire{
+  margin-top: 1rem;
+}
+span.connect-in-login img {
+  width: 1.5rem;
+  position: absolute;
+  right: 2rem;
+  top: 5.5rem;
+}
+.successContainer {
+  width: 100%;
+  background-color: #0fcbce30;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+margin-bottom: 0;
+}
+
+.slideInSuccess {
+  height: 100vh;
+  transition: all 0.5s;
+ 
+}
+.contenu{
+  display: none;
+}
+.showContenu{
+  display: inline-block;
+}
+.slideOutSuccess {
+  height: 0;
+  transition: all 0.5s;
+}
+
+.success-img img {
+  width: 8rem;
+  /* margin: auto; */
+  height: 8rem;
+}
+
+.success-img {
+  width: 100%;
+  /* margin: auto; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.test {
+  text-align: center;
+  /* width: 95%; */
+  font-size: 1.1rem;
+  line-height: 1.8rem;
+  font-family: "Roboto";
+  /* padding: 0 1rem; */
+  margin: 0 0.5rem;
+}
+
+.btn-continuer {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  padding: 1rem;
+  border-radius: 3rem;
+  background-color: #0fccce;
+  color: #FFF;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  font-family: "Roboto";
+}
+.test-bold  {
+  font-weight: bold;
+  font-family: "Roboto";
+}
+.felicitation {
+  font-size: 1.6rem;
+  letter-spacing: 0.2rem;
+  font-weight: normal;
+  font-family: "Roboto";
+}
 
 
-@media only screen and (max-width: 600px){
+
+
+
   .formsContainer{
   display: flex;
   flex-direction: column;
@@ -162,8 +294,23 @@ button.mat-stepper-previous.step_btn.ng-star-inserted {
   .login-form{
     width: 90%;
 }
+  /* IPHONE STYLE*/
+
+  @media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+    .formsContainer{
+      padding-top: 9.5rem;
+    }
+    .mainBtn {
+      margin-top: 2rem;
+    }
+
+  }
 
 
-}
+
+
 
 

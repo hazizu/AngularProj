@@ -200,6 +200,21 @@ span.logout {
     }
 
 }
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: -webkit-fill-available;
+  background-color: #f1f1f1;
+  border-top: 1px solid #0000002e;
+}
+app-bottom-menu {
+  /* display: flex; */
+  /* position: absolute; */
+  /* bottom: 0; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
 
 
